@@ -1,0 +1,148 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: linear-gradient(90deg, #007bff, #0056d2);
+  color: white;
+  padding: 15px 20px;
+  align-items: center;
+}
+
+header img {
+  max-width: 80px;
+  border-radius: 10px;
+}
+
+header h4 {
+  margin: auto 0;
+  font-weight: 500;
+}
+
+.nav {
+  background: #f8f9fa;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.nav li {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.nav li:hover {
+  background-color: #0056d2;
+  transform: translateY(-3px);
+}
+
+.my-bg {
+  padding: 40px 0;
+  flex-grow: 1;
+}
+
+footer {
+  background-color: #0d6efd;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  margin-top: auto;
+}
+
+footer a {
+  color: #fff3cd;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.hijau-bg {
+  background-color: rgba(2, 254, 2, 0.6);
+  color: rgb(0, 0, 0);
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.merah-bg {
+  background-color: rgba(248, 12, 4, 0.6);
+  color: rgb(0, 0, 0);
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.my-bg {
+  background: rgba(0, 0, 0, 0.12)
+    url("https://i.pinimg.com/736x/57/fe/11/57fe11415164abe428dd55726fe1fb21.jpg")
+    no-repeat center center/cover !important;
+}
+
+.bg-islami {
+  background: rgba(0, 0, 0, 0.12)
+    url("https://i.pinimg.com/736x/42/8a/91/428a91ebb8a40ee964b9cbd290febf06.jpg")
+    no-repeat center center/cover !important;
+}
+
+  .bayangan {
+    background: linear-gradient(145deg, #01950b, #06870e) !important;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px #025e08; /* bayangan bawah (efek tombol terangkat) */
+    transition: all 0.15s ease-in-out;
+  }
+
+  .bayangan:active {
+    box-shadow: 0 1px #7e7c7c !important; /* bayangan makin pendek saat ditekan */
+    transform: translateY(4px); /* tombol turun sedikit */
+  }
+
+  .bayangan:hover {
+    background: linear-gradient(145deg, #01a50c, #03ad0e) !important;
+  }
+  .tombol {
+    background: linear-gradient(145deg, #ffffff, #ffffff) !important;
+    color: #000;
+    font-size: 12px;
+    padding: 15px 40px;
+    border: 2px solid #0d6efd !important;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.4s ease; /* dari 0.15s → 0.4s biar lebih halus */
+  }
+
+  .tombol:hover {
+    transform: translateX(4px);
+  }
+
+  .tombol:active {
+    background: #2179fd !important;
+    color: #fff;
+    transform: scale(0.97);
+  }
+  .img-fluid {
+    max-width: 6rem !important;
+    max-width: 60px;
+  }

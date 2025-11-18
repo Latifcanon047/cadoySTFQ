@@ -1,0 +1,72 @@
+[
+    {
+        "nama": "Rizki Pratama",
+        "alamat": "Garut",
+        "usia": 18,
+        "jumlahHafalan": 5,
+        "HafalanKitab": ["Jurumiah", "Tijan"]
+    },
+    {
+        "nama": "Hilman Siregar",
+        "alamat": "Bekasi",
+        "usia": 24,
+        "jumlahHafalan": 18,
+        "HafalanKitab": ["Al-Fiyah", "Imrithy", "Fathul Muin", "Tafsir Jalalain", "Bulughul Maram"]
+    },
+    {
+        "nama": "Budi Santoso",
+        "alamat": "Jakarta",
+        "usia": 21,
+        "jumlahHafalan": 7,
+        "HafalanKitab": ["Taqrib", "Fathul Qarib"]
+    },
+    {
+        "nama": "Joko Widodo",
+        "alamat": "Solo",
+        "usia": 25,
+        "jumlahHafalan": 20,
+        "HafalanKitab": ["Imrithy", "Al-Fiyah", "Tafsir Jalalain", "Bulughul Maram", "Safinatun Naja"]
+    },
+    {
+        "nama": "Rina Andayani",
+        "alamat": "Yogyakarta",
+        "usia": 19,
+        "jumlahHafalan": 9,
+        "HafalanKitab": ["Jurumiah", "Tijan", "Taqrib"]
+    },
+    {
+        "nama": "Siti Aminah",
+        "alamat": "Semarang",
+        "usia": 20,
+        "jumlahHafalan": 11,
+        "HafalanKitab": ["Tijan", "Fathul Qarib", "Imrithy"]
+    },
+    {
+        "nama": "Dewi Sartika",
+        "alamat": "Bandung",
+        "usia": 22,
+        "jumlahHafalan": 14,
+        "HafalanKitab": ["Al-Fiyah", "Imrithy", "Tafsir Jalalain"]
+    },
+    {
+        "nama": "Ahmad Dhani",
+        "alamat": "Surabaya",
+        "usia": 26,
+        "jumlahHafalan": 16,
+        "HafalanKitab": ["Fathul Muin", "Bulughul Maram", "Tafsir Jalalain", "Imrithy"]
+    },
+    {
+        "nama": "Lukman Hakim",
+        "alamat": "Malang",
+        "usia": 23,
+        "jumlahHafalan": 8,
+        "HafalanKitab": ["Taqrib", "Tijan", "Jurumiah"]
+    },
+    {
+        "nama": "Rahmat Hidayat",
+        "alamat": "Bogor",
+        "usia": 21,
+        "jumlahHafalan": 13,
+        "HafalanKitab": ["Imrithy", "Al-Fiyah", "Fathul Qarib", "Tijan"]
+    }
+]

@@ -142,8 +142,10 @@ tambahData.addEventListener('click', () => {
         tambahData.textContent = "Tambah Data";
         tambahData.classList.remove("btn-success");
         tambahData.classList.add("btn-primary");
+        showToast("Perubahan berhasil disimpan", "simpan");
     } else {
         santri.push({nama, alamat, usia, jumlahHafalan, HafalanKitab});
+        showToast("Data ditambahkan", "tambah");
     }
 
     console.log(santri);
@@ -161,6 +163,7 @@ tbody.addEventListener('click', (e) => {
         const index = e.target.dataset.index;
         santri.splice(index, 1);
         renderWithCurrentSort();
+        showToast("Data dihapus!", "hapus");
         localStorage.setItem("dataSantri2", JSON.stringify(santri));
     }
 
@@ -298,7 +301,7 @@ function showToast(message, type = "tambah") {
     const container = document.getElementById("toastContainer");
 
     const div = document.createElement("div");
-    div.className = `popup ${type}`;
+    div.className = `notif ${type}`;
     div.textContent = message;
 
     container.appendChild(div);

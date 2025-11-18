@@ -147,7 +147,7 @@ footer a:hover {
     max-width: 60px;
   }
 
-  .popup-kontener {
+  .wadah-notif {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -157,7 +157,7 @@ footer a:hover {
   z-index: 9999;
 }
 
-.popup {
+.notif {
   padding: 12px 18px;
   border-radius: 8px;
   color: white;
@@ -165,9 +165,9 @@ footer a:hover {
   animation: fadeIn 0.3s ease;
 }
 
-.popup.simpan { background-color: #4caf50; }
-.popup.hapus { background-color: #2196f3;}
-.popup.tambah { background-color: #4caf50;}
+.notif.simpan { background-color: #4caf50; }
+.notif.hapus { background-color: #2196f3;}
+.notif.tambah { background-color: #4caf50;}
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-10px); -webkit-transform: translateY(-10px); -moz-transform: translateY(-10px); -ms-transform: translateY(-10px); -o-transform: translateY(-10px); }

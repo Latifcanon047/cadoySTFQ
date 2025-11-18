@@ -70,10 +70,12 @@ function renderWithCurrentSort() {
         .filter(item => item.nama.toLowerCase().includes(kata));
         const dataToShow = getSortedData(hasil);
         console.log(hasil);
+        console.log(currentSort);
 
         tampilkanHasilCari(dataToShow);
     } else {
         const sorted = getSortedData(santri);
+        console.log(currentSort);
 
         tampilkanDataDariArray(sorted);
     }
@@ -272,7 +274,6 @@ function autoEnter() {
             }
         });
 
-        // Optional: Auto-trim input
         input.addEventListener("blur", () => {
             input.value = input.value.trim();
         });
@@ -292,6 +293,25 @@ function autoEnter() {
         prevInput?.select();
     }
 }
+
+function showToast(message, type = "tambah") {
+    const container = document.getElementById("toastContainer");
+
+    const div = document.createElement("div");
+    div.className = `popup ${type}`;
+    div.textContent = message;
+
+    container.appendChild(div);
+
+    setTimeout(() => {
+        div.style.opacity = "0";
+        div.style.transition = "0.5s";
+
+        setTimeout(() => div.remove(), 500);
+    }, 2500);
+}
+
+
 window.onload = () => {
     const simpanan = localStorage.getItem("dataSantri2");
 

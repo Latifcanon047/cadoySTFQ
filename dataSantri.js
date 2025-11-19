@@ -3,8 +3,9 @@ const tbody = document.querySelector("tbody");
 const jumlahSantri = document.getElementById('jumlahSantri');
 console.log(tbody);
 let santri = [];
+let dataSantri = [];
 let editIndex = null;
-
+console.log(santri);
 let currentSort = { key: null, dir: 'asc' };
 
 const sortBySelect = document.getElementById('sortBy');
@@ -65,7 +66,9 @@ function renderWithCurrentSort() {
     const kata = (document.getElementById('cari')?.value || "").trim().toLowerCase();
 
     if (kata) {
-        const hasil = santri
+        dataSantri = santri.map((item) => ({ ...item, usia: hitungUmur(item.TTL) }));
+        console.log('ini data santri',dataSantri);
+        const hasil = dataSantri
         .map((item, index) => ({ ...item, indexAsli: index }))
         .filter(item => item.nama.toLowerCase().includes(kata));
         const dataToShow = getSortedData(hasil);
@@ -74,7 +77,9 @@ function renderWithCurrentSort() {
 
         tampilkanHasilCari(dataToShow);
     } else {
-        const sorted = getSortedData(santri);
+        dataSantri = santri.map((item) => ({ ...item, usia: hitungUmur(item.TTL) }));
+        console.log('ini data santri',dataSantri);
+        const sorted = getSortedData(dataSantri);
         console.log(currentSort);
 
         tampilkanDataDariArray(sorted);
@@ -95,6 +100,7 @@ function tampilkanDataDariArray(arrayData) {
         <td>${index + 1}</td>
         <td>${item.nama}</td>
         <td>${item.alamat}</td>
+        <td>${formatIndo(item.TTL)}</td>
         <td>${item.usia}</td>
         <td>${item.jumlahHafalan}</td>
         <td>${item.HafalanKitab.join(", ")}</td>
@@ -110,12 +116,14 @@ function tampilkanDataDariArray(arrayData) {
 
 }
 
-
 async function ambildata() {
     try{
         const res = await fetch("dataSantri.json");
         santri = await res.json();
         console.log(santri);
+        dataSantri = santri.map((item) => ({ ...item, usia: hitungUmur(item.TTL) }));
+        console.log('ini data santri',dataSantri);
+
         renderWithCurrentSort();
     } catch (err) {
         console.error("aduuuh error pulaa", err);
@@ -125,34 +133,34 @@ async function ambildata() {
 tambahData.addEventListener('click', () => {
     const nama = kapital(document.getElementById("namaSantri"));
     const alamat = kapital(document.getElementById("alamat"));
-    const usia = Number(document.getElementById("usia").value);
+    const TTL = document.getElementById("TTL").value;
     const jumlahHafalan = Number(document.getElementById("jumlahHafalan").value);
     const HafalanKitab = kapitalArray(document.getElementById("kitabYangTelahDiHafal"));
     console.log('atas',editIndex);
 
-    if (nama === "" || alamat === "" || usia <1 || jumlahHafalan <1 || !Array.isArray(HafalanKitab) || HafalanKitab.length === 0) {
+    if (nama === "" || alamat === "" || TTL <1 || jumlahHafalan <1 || !Array.isArray(HafalanKitab) || HafalanKitab.length === 0) {
         alert ("isi semua input terlebih dahulu!!")
         return;
     }
 
     if (editIndex !== null) {
-        santri[editIndex] = {nama, alamat, usia, jumlahHafalan, HafalanKitab};
+        santri[editIndex] = {nama, alamat, TTL, jumlahHafalan, HafalanKitab};
         editIndex = null;
 
         tambahData.textContent = "Tambah Data";
         tambahData.classList.remove("btn-success");
         tambahData.classList.add("btn-primary");
-        showToast("Perubahan berhasil disimpan", "simpan");
+        showToast("Perubahan berhasil disimpan!", "success");
     } else {
-        santri.push({nama, alamat, usia, jumlahHafalan, HafalanKitab});
-        showToast("Data ditambahkan", "tambah");
+        santri.push({nama, alamat, TTL,usia: hitungUmur(TTL), jumlahHafalan, HafalanKitab});
+        showToast("Data ditambahkan!", "success");
     }
 
     console.log(santri);
     renderWithCurrentSort();
     localStorage.setItem("dataSantri2", JSON.stringify(santri));
 
-    const input = ['namaSantri', 'alamat', 'usia', 'jumlahHafalan', 'kitabYangTelahDiHafal'];
+    const input = ['namaSantri', 'alamat', 'TTL', 'jumlahHafalan', 'kitabYangTelahDiHafal'];
     input.forEach(id => {
         document.getElementById(id).value = '';
     });
@@ -163,7 +171,7 @@ tbody.addEventListener('click', (e) => {
         const index = e.target.dataset.index;
         santri.splice(index, 1);
         renderWithCurrentSort();
-        showToast("Data dihapus!", "hapus");
+        showToast("Data dihapus!", "info");
         localStorage.setItem("dataSantri2", JSON.stringify(santri));
     }
 
@@ -173,7 +181,7 @@ tbody.addEventListener('click', (e) => {
 
         document.getElementById("namaSantri").value = santri[editIndex].nama;
         document.getElementById('alamat').value = santri[editIndex].alamat;
-        document.getElementById('usia').value = santri[editIndex].usia;
+        document.getElementById('TTL').value = santri[editIndex].TTL;
         document.getElementById('jumlahHafalan').value = santri[editIndex].jumlahHafalan;
         document.getElementById('kitabYangTelahDiHafal').value = santri[editIndex].HafalanKitab.join(", ");
 
@@ -195,7 +203,6 @@ function kapital(inputElement) {
     return hasil;
 }
 
-
 function kapitalArray(inputElement) {
     const teks = inputElement.value;
 
@@ -212,6 +219,28 @@ function kapitalArray(inputElement) {
 
     inputElement.value = daftarKitab.join(", ");
     return daftarKitab;
+}
+
+function formatIndo(tgl) {
+    return new Date(tgl).toLocaleDateString("id-ID", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+    });
+}
+
+function hitungUmur(tanggalLahir) {
+    const today = new Date();                 
+    const birth = new Date(tanggalLahir); 
+
+    let umur = today.getFullYear() - birth.getFullYear();
+    const bulan = today.getMonth() - birth.getMonth();
+
+    if (bulan < 0 || (bulan === 0 && today.getDate() < birth.getDate())) {
+        umur--;
+    }
+
+    return umur;
 }
 
 
@@ -232,6 +261,7 @@ function tampilkanHasilCari(data) {
             <td>${index + 1}</td>
             <td>${item.nama}</td>
             <td>${item.alamat}</td>
+            <td>${formatIndo(item.TTL)}</td>
             <td>${item.usia}</td>
             <td>${item.jumlahHafalan}</td>
             <td>${item.HafalanKitab.join(", ")}</td>
@@ -251,7 +281,7 @@ function autoEnter() {
     const INPUT_IDS = [
         "namaSantri",
         "alamat", 
-        "usia", 
+        "TTL", 
         "jumlahHafalan", 
         "kitabYangTelahDiHafal"
     ];
@@ -293,27 +323,19 @@ function autoEnter() {
     function focusPrevInput(currentIndex) {
         const prevInput = document.getElementById(INPUT_IDS[currentIndex - 1]);
         prevInput?.focus();
-        prevInput?.select();
     }
 }
 
-function showToast(message, type = "tambah") {
-    const container = document.getElementById("toastContainer");
+function showToast(pesan, warna = "primary") {
+    const toastEl = document.getElementById("myToast");
 
-    const div = document.createElement("div");
-    div.className = `notif ${type}`;
-    div.textContent = message;
+    toastEl.className = `toast align-items-center text-white bg-${warna} border-0`;
 
-    container.appendChild(div);
+    toastEl.querySelector(".toast-body").textContent = pesan;
 
-    setTimeout(() => {
-        div.style.opacity = "0";
-        div.style.transition = "0.5s";
-
-        setTimeout(() => div.remove(), 500);
-    }, 2500);
+    const toast = new bootstrap.Toast(toastEl);
+    toast.show();
 }
-
 
 window.onload = () => {
     const simpanan = localStorage.getItem("dataSantri2");

@@ -64,7 +64,7 @@
 
     <div id="input" class="container-fluid bg-islami px-3 px-md-5 py-4">
         <div class="row justify-content-center">
-            <div class="mx-5 col-md-7 my-3 bg-white rounded-4">
+            <div class="mx-5 col-md-7 col-lg-5 my-3 bg-white rounded-4">
                 <h4 class="my-3 mx-3 text-primary">Formulir Data Hafalan</h4>
 
                 <form class="row g-3 m-3 mb-4 bg-dark text-white p-4 rounded-4">
@@ -79,8 +79,11 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="usia" class="form-label">Usia:</label>
-                        <input type="number" class="form-control" id="usia" placeholder="Usia santri">
+                        <label for="usia" class="form-label">Tanggal lahir:</label>
+                        <input 
+                            type="date" 
+                            class="form-control form-control-md shadow-sm border-0 rounded-3"
+                            id="TTL">
                     </div>
 
                     <div class="col-md-6">
@@ -129,6 +132,7 @@
                             <th>No.</th>
                             <th>Nama Santri</th>
                             <th>Alamat</th>
+                            <th>Tanggal Lahir</th>
                             <th>Usia</th>
                             <th>Jumlah Hafalan</th>
                             <th>Kitab Dihafal</th>
@@ -144,7 +148,16 @@
         </div>
     </div>
 
-    <div class="wadah-notif" id="toastContainer"></div>
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="myToast" class="toast align-items-center text-white bg-primary border-0" role="alert">
+            <div class="d-flex">
+                <div class="toast-body">
+
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
 
     <footer class="text-center py-3 border-top">
         <p class="mb-1">© 2025 | Dibuat oleh <b>Abdul Latif</b></p>

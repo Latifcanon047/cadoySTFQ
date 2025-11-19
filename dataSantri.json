@@ -1,72 +1,153 @@
 [
     {
-        "nama": "Rizki Pratama",
-        "alamat": "Garut",
-        "usia": 18,
-        "jumlahHafalan": 5,
-        "HafalanKitab": ["Jurumiah", "Tijan"]
-    },
-    {
-        "nama": "Hilman Siregar",
-        "alamat": "Bekasi",
-        "usia": 24,
-        "jumlahHafalan": 18,
-        "HafalanKitab": ["Al-Fiyah", "Imrithy", "Fathul Muin", "Tafsir Jalalain", "Bulughul Maram"]
-    },
-    {
-        "nama": "Budi Santoso",
-        "alamat": "Jakarta",
-        "usia": 21,
-        "jumlahHafalan": 7,
-        "HafalanKitab": ["Taqrib", "Fathul Qarib"]
-    },
-    {
-        "nama": "Joko Widodo",
-        "alamat": "Solo",
-        "usia": 25,
-        "jumlahHafalan": 20,
-        "HafalanKitab": ["Imrithy", "Al-Fiyah", "Tafsir Jalalain", "Bulughul Maram", "Safinatun Naja"]
-    },
-    {
-        "nama": "Rina Andayani",
-        "alamat": "Yogyakarta",
-        "usia": 19,
-        "jumlahHafalan": 9,
-        "HafalanKitab": ["Jurumiah", "Tijan", "Taqrib"]
+        "nama": "Ahmad Fauzi",
+        "alamat": "Bandung",
+        "TTL": "2003-05-15",
+        "jumlahHafalan": 3,
+        "HafalanKitab": ["Alala", "Tuhfatul Athfal"]
     },
     {
         "nama": "Siti Aminah",
-        "alamat": "Semarang",
-        "usia": 20,
-        "jumlahHafalan": 11,
-        "HafalanKitab": ["Tijan", "Fathul Qarib", "Imrithy"]
+        "alamat": "Tasikmalaya",
+        "TTL": "2002-08-22",
+        "jumlahHafalan": 7,
+        "HafalanKitab": ["Yaqutun Nafis", "Safinatun Najah"]
     },
     {
-        "nama": "Dewi Sartika",
-        "alamat": "Bandung",
-        "usia": 22,
-        "jumlahHafalan": 14,
-        "HafalanKitab": ["Al-Fiyah", "Imrithy", "Tafsir Jalalain"]
+        "nama": "Muhammad Rizky",
+        "alamat": "Ciamis",
+        "TTL": "2001-11-10",
+        "jumlahHafalan": 4,
+        "HafalanKitab": ["Kawakib", "Sullamut Taufiq"]
     },
     {
-        "nama": "Ahmad Dhani",
-        "alamat": "Surabaya",
-        "usia": 26,
-        "jumlahHafalan": 16,
-        "HafalanKitab": ["Fathul Muin", "Bulughul Maram", "Tafsir Jalalain", "Imrithy"]
+        "nama": "Dewi Lestari",
+        "alamat": "Sumedang",
+        "TTL": "2004-03-30",
+        "jumlahHafalan": 6,
+        "HafalanKitab": ["Aqidatul Awam", "Amriti"]
     },
     {
-        "nama": "Lukman Hakim",
-        "alamat": "Malang",
-        "usia": 23,
+        "nama": "Abdul Rahman",
+        "alamat": "Majalengka",
+        "TTL": "2000-07-18",
         "jumlahHafalan": 8,
-        "HafalanKitab": ["Taqrib", "Tijan", "Jurumiah"]
+        "HafalanKitab": ["Alfiyyah", "Imrithi"]
+    },
+    {   
+        "nama": "Nur Hasanah",
+        "alamat": "Kuningan",
+        "TTL": "2003-12-05",
+        "jumlahHafalan": 2,
+        "HafalanKitab": ["Tijan", "Jurumiah"]
     },
     {
-        "nama": "Rahmat Hidayat",
-        "alamat": "Bogor",
-        "usia": 21,
-        "jumlahHafalan": 13,
-        "HafalanKitab": ["Imrithy", "Al-Fiyah", "Fathul Qarib", "Tijan"]
+        "nama": "Fajar Siddiq",
+        "alamat": "Cirebon",
+        "TTL": "2002-09-14",
+        "jumlahHafalan": 5,
+        "HafalanKitab": ["Safinatun Najah", "Alala"]
+    },
+    {
+        "nama": "Luthfi Aziz",
+        "alamat": "Garut",
+        "TTL": "2001-04-25",
+        "jumlahHafalan": 9,
+        "HafalanKitab": ["Yaqutun Nafis", "Kawakib", "Sullamut Taufiq"]
+    },
+    {
+        "nama": "Rina Marlina",
+        "alamat": "Bandung",
+        "TTL": "2004-06-08",
+        "jumlahHafalan": 3,
+        "HafalanKitab": ["Tuhfatul Athfal", "Amriti"]
+    },
+    
+    {
+        "nama": "Irfan Maulana",
+        "alamat": "Tasikmalaya",
+        "TTL": "2000-10-12",
+        "jumlahHafalan": 7,
+        "HafalanKitab": ["Aqidatul Awam", "Imrithi"]
+    },
+    
+    {
+        "nama": "Salsa Bila",
+        "alamat": "Ciamis",
+        "TTL": "2003-01-20",
+        "jumlahHafalan": 4,
+        "HafalanKitab": ["Jurumiah", "Tijan", "Alala"]
+    },
+    
+    {
+        "nama": "Hilman Firdaus",
+        "alamat": "Sumedang",
+        "TTL": "2002-07-03",
+        "jumlahHafalan": 6,
+        "HafalanKitab": ["Safinatun Najah", "Yaqutun Nafis"]
+    },
+    
+    {   
+        "nama": "Zahra Nabila",
+        "alamat": "Majalengka",
+        "TTL": "2001-02-28",
+        "jumlahHafalan": 8,
+        "HafalanKitab": ["Kawakib", "Alfiyyah"]
+    },
+    
+    {
+        "nama": "Ridwan Hakim",
+        "alamat": "Kuningan",
+        "TTL": "2004-08-17",
+        "jumlahHafalan": 5,
+        "HafalanKitab": ["Sullamut Taufiq", "Aqidatul Awam"]
+    },
+    
+    {
+        "nama": "Anisa Rahma",
+        "alamat": "Cirebon",
+        "TTL": "2000-05-09",
+        "jumlahHafalan": 3,
+        "HafalanKitab": ["Tuhfatul Athfal", "Amriti"]
+    },
+    
+    {
+        "nama": "Fahmi Aditya",
+        "alamat": "Garut",
+        "TTL": "2003-11-24",
+        "jumlahHafalan": 7,
+        "HafalanKitab": ["Imrithi", "Yaqutun Nafis"]
+    },
+    
+    {
+        "nama": "Melia Putri",
+        "alamat": "Bandung",
+        "TTL": "2002-04-16",
+        "jumlahHafalan": 4,
+        "HafalanKitab": ["Jurumiah", "Alala", "Tijan"]
+    },
+    
+    {
+        "nama": "Syafiq Rizki",
+        "alamat": "Tasikmalaya",
+        "TTL": "2001-09-07",
+        "jumlahHafalan": 6,
+        "HafalanKitab": ["Safinatun Najah", "Kawakib"]
+    },
+    
+    {
+        "nama": "Dinda Puspita",
+        "alamat": "Ciamis",
+        "TTL": "2004-12-11",
+        "jumlahHafalan": 9,
+        "HafalanKitab": ["Alfiyyah", "Sullamut Taufiq", "Aqidatul Awam"]
+    },
+    
+    {
+        "nama": "Rafi Abdullah",
+        "alamat": "Sumedang",
+        "TTL": "2000-03-22",
+        "jumlahHafalan": 5,
+        "HafalanKitab": ["Tuhfatul Athfal", "Amriti", "Imrithi"]
     }
 ]

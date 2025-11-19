@@ -5,7 +5,6 @@ console.log(tbody);
 let santri = [];
 let dataSantri = [];
 let editIndex = null;
-console.log(santri);
 let currentSort = { key: null, dir: 'asc' };
 
 const sortBySelect = document.getElementById('sortBy');
@@ -79,6 +78,7 @@ function renderWithCurrentSort() {
     } else {
         dataSantri = santri.map((item) => ({ ...item, usia: hitungUmur(item.TTL) }));
         console.log('ini data santri',dataSantri);
+        console.log('ini santri', santri);
         const sorted = getSortedData(dataSantri);
         console.log(currentSort);
 
@@ -93,7 +93,7 @@ function tampilkanDataDariArray(arrayData) {
 
     arrayData.forEach((item, index) => {
 
-        const asliIndex = item.indexAsli !== undefined ? item.indexAsli : santri.indexOf(item);
+        const asliIndex = item.indexAsli !== undefined ? item.indexAsli : dataSantri.indexOf(item);
 
         const tr = document.createElement("tr");
         tr.innerHTML = `
@@ -152,7 +152,7 @@ tambahData.addEventListener('click', () => {
         tambahData.classList.add("btn-primary");
         showToast("Perubahan berhasil disimpan!", "success");
     } else {
-        santri.push({nama, alamat, TTL,usia: hitungUmur(TTL), jumlahHafalan, HafalanKitab});
+        santri.push({nama, alamat, TTL, jumlahHafalan, HafalanKitab});
         showToast("Data ditambahkan!", "success");
     }
 
@@ -323,6 +323,7 @@ function autoEnter() {
     function focusPrevInput(currentIndex) {
         const prevInput = document.getElementById(INPUT_IDS[currentIndex - 1]);
         prevInput?.focus();
+        prevInput?.select();
     }
 }
 

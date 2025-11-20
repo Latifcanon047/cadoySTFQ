@@ -130,40 +130,54 @@ async function ambildata() {
     }
 } 
 
-tambahData.addEventListener('click', () => {
+const namaSantri = document.getElementById("namaSantri");
+const errNama = document.getElementById("err-namaSantri");
+namaSantri.addEventListener('input', () => {
+    let val = namaSantri.value.trim();
+
+    if (!/^[A-Za-z\s]*$/.test(val)) {
+        errNama.style.display = "block";
+        errNama.textContent = "Nama hanya boleh berisi huruf";
+    } else {
+        errNama.style.display = "none";
+    }
+
+});
+
+tambahData.addEventListener('click', (e) => {
+    e.preventDefault();
+
     const nama = kapital(document.getElementById("namaSantri"));
     const alamat = kapital(document.getElementById("alamat"));
     const TTL = document.getElementById("TTL").value;
     const jumlahHafalan = Number(document.getElementById("jumlahHafalan").value);
     const HafalanKitab = kapitalArray(document.getElementById("kitabYangTelahDiHafal"));
-    console.log('atas',editIndex);
-
-    if (nama === "" || alamat === "" || TTL <1 || jumlahHafalan <1 || !Array.isArray(HafalanKitab) || HafalanKitab.length === 0) {
-        alert ("isi semua input terlebih dahulu!!")
+    
+    if (!nama || !alamat || !TTL || jumlahHafalan < 1 || !Array.isArray(HafalanKitab) || HafalanKitab.length === 0) {
+        showToast("Isi semua input terlebih dahulu!", "danger");
         return;
     }
 
     if (editIndex !== null) {
-        santri[editIndex] = {nama, alamat, TTL, jumlahHafalan, HafalanKitab};
+        santri[editIndex] = { nama, alamat, TTL, jumlahHafalan, HafalanKitab };
         editIndex = null;
 
         tambahData.textContent = "Tambah Data";
         tambahData.classList.remove("btn-success");
         tambahData.classList.add("btn-primary");
+
         showToast("Perubahan berhasil disimpan!", "success");
-    } else {
-        santri.push({nama, alamat, TTL, jumlahHafalan, HafalanKitab});
+    } 
+    
+    else {
+        santri.push({ nama, alamat, TTL, jumlahHafalan, HafalanKitab });
         showToast("Data ditambahkan!", "success");
     }
-
-    console.log(santri);
+    
+    const input = ['namaSantri', 'alamat', 'TTL', 'jumlahHafalan', 'kitabYangTelahDiHafal'];
+    input.forEach(id => document.getElementById(id).value = '');
     renderWithCurrentSort();
     localStorage.setItem("dataSantri2", JSON.stringify(santri));
-
-    const input = ['namaSantri', 'alamat', 'TTL', 'jumlahHafalan', 'kitabYangTelahDiHafal'];
-    input.forEach(id => {
-        document.getElementById(id).value = '';
-    });
 });
 
 tbody.addEventListener('click', (e) => {

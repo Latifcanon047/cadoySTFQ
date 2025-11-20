@@ -102,74 +102,83 @@ footer a:hover {
     no-repeat center center/cover !important;
 }
 
-  .bayangan {
-    background: linear-gradient(145deg, #01950b, #06870e) !important;
-    color: rgb(0, 0, 0);
-    font-size: 18px;
-    padding: 15px 40px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    box-shadow: 0 4px #025e08; /* bayangan bawah (efek tombol terangkat) */
-    transition: all 0.15s ease-in-out;
-  }
-
-  .bayangan:active {
-    box-shadow: 0 1px #7e7c7c !important; /* bayangan makin pendek saat ditekan */
-    transform: translateY(4px); /* tombol turun sedikit */
-  }
-
-  .bayangan:hover {
-    background: linear-gradient(145deg, #01a50c, #03ad0e) !important;
-  }
-  .tombol {
-    background: linear-gradient(145deg, #ffffff, #ffffff) !important;
-    color: #000;
-    font-size: 12px;
-    padding: 15px 40px;
-    border: 2px solid #0d6efd !important;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.4s ease; /* dari 0.15s → 0.4s biar lebih halus */
-  }
-
-  .tombol:hover {
-    transform: translateX(4px);
-  }
-
-  .tombol:active {
-    background: #2179fd !important;
-    color: #fff;
-    transform: scale(0.97);
-  }
-  .img-fluid {
-    max-width: 6rem !important;
-    max-width: 60px;
-  }
-
-  .wadah-notif {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 9999;
+.bayangan {
+  background: linear-gradient(145deg, #01950b, #06870e) !important;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px #025e08; /* bayangan bawah (efek tombol terangkat) */
+  transition: all 0.15s ease-in-out;
 }
 
-.notif {
-  padding: 12px 18px;
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
-  animation: fadeIn 0.3s ease;
+.bayangan:active {
+  box-shadow: 0 1px #7e7c7c !important; /* bayangan makin pendek saat ditekan */
+  transform: translateY(4px); /* tombol turun sedikit */
 }
 
-.notif.simpan { background-color: #4caf50; }
-.notif.hapus { background-color: #2196f3;}
-.notif.tambah { background-color: #4caf50;}
+.bayangan:hover {
+  background: linear-gradient(145deg, #01a50c, #03ad0e) !important;
+}
+.tombol {
+  background: linear-gradient(145deg, #ffffff, #ffffff) !important;
+  color: #000;
+  font-size: 12px;
+  padding: 15px 40px;
+  border: 2px solid #0d6efd !important;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.4s ease; /* dari 0.15s → 0.4s biar lebih halus */
+}
+
+.tombol:hover {
+  transform: translateX(4px);
+}
+
+.tombol:active {
+  background: #2179fd !important;
+  color: #fff;
+  transform: scale(0.97);
+}
+.img-fluid {
+  max-width: 6rem !important;
+  max-width: 60px;
+}
+
+/* Wrapper agar tidak bentrok dengan Bootstrap */
+.custom-form .input-error {
+  display: none;
+  font-size: 13px;
+  color: #fff;
+  background: #e74c3c;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-top: 6px;
+  position: relative;
+  animation: fadeIn 0.5s ease-in-out;
+  -webkit-animation: fadeIn 0.3s ease-in-out;
+}
+
+.custom-form .input-error::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 12px;
+
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #e74c3c;
+}
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); -webkit-transform: translateY(-10px); -moz-transform: translateY(-10px); -ms-transform: translateY(-10px); -o-transform: translateY(-10px); }
-  to   { opacity: 1; transform: translateY(0); -webkit-transform: translateY(0); -moz-transform: translateY(0); -ms-transform: translateY(0); -o-transform: translateY(0); }
+    from { opacity: 0; transform: translateY(-3px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Style input saat error */
+.custom-form .is-invalid {
+    border-color: #e74c3c !important;
+    box-shadow: 0 0 0 0.25rem rgba(231, 76, 60, .25) !important;
 }

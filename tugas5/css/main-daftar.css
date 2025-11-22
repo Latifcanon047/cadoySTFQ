@@ -1,0 +1,174 @@
+.main {
+  font-family: Arial, sans-serif;
+  background: rgba(0, 0, 0, 0.12)
+    url("https://i.pinimg.com/736x/0a/bc/d5/0abcd5acd0207e7ad71c0ef03322a019.jpg")
+    no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+.main img {
+  width: 320px;
+  height: 650px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+.left img {
+  animation: slideInLeft 1.2s ease forwards;
+  margin-left: 25px;
+}
+
+.right img {
+  animation: slideInRight 1.2s ease forwards;
+  margin-right: 25px;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-200%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.form-container {
+  background: #fff;
+  padding: 30px;
+  margin: 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  min-width: 350px;
+  max-width: 700px;
+  animation: daftar;
+  animation-duration: 1s;
+}
+@keyframes daftar {
+  from {
+    transform: translatey(200%);
+    opacity: 0;
+  }
+  to {
+    transform: translatey(0);
+    opacity: 1;
+  }
+}
+#pendaftaranForm input,
+#pendaftaranForm select,
+#pendaftaranForm textarea,
+#pendaftaranForm button {
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
+}
+#pendaftaranForm input:nth-child(2) {
+  animation-delay: 0.6s;
+}
+#pendaftaranForm input:nth-child(4) {
+  animation-delay: 0.8s;
+}
+#pendaftaranForm select {
+  animation-delay: 1s;
+}
+#pendaftaranForm textarea {
+  animation-delay: 1.2s;
+}
+#pendaftaranForm input:nth-child(10) {
+  animation-delay: 1.4s;
+}
+#pendaftaranForm input:nth-child(12) {
+  animation-delay: 1.6s;
+}
+#pendaftaranForm input:nth-child(14) {
+  animation-delay: 1.8s;
+}
+#pendaftaranForm input:nth-child(16) {
+  animation-delay: 2s;
+}
+#pendaftaranForm button {
+  animation-delay: 2.2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #444;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #0077ff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #005fcb;
+}
+
+.success {
+  background: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  display: none;
+}
+
+.error {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  display: none;
+}

@@ -1,0 +1,173 @@
+.custom-style {
+  background: rgba(0, 0, 0, 0.12)
+    url("https://i.pinimg.com/736x/0a/bc/d5/0abcd5acd0207e7ad71c0ef03322a019.jpg")
+    no-repeat center center/cover;
+  padding: 2rem 0;
+}
+.margin-h {
+  font-weight: bold;
+  color: #0c9e38;
+}
+
+.margin-hf {
+  font-weight: bold;
+  margin-top: 2rem;
+  color: #0c9e38;
+}
+
+.my-style-img {
+  box-shadow: 8px 10px 8px rgba(0, 0, 0, 0.3);
+  animation: none;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+.my-style-texts {
+  padding: 2rem;
+  margin: 2rem;
+}
+
+.border-saya {
+  border: none !important;
+}
+
+.offcanvas-menu {
+  background-color: #2c3e50;
+  color: white;
+  width: 30%;
+  padding: 1rem;
+}
+
+@media (max-width: 640px) {
+  .my-style-img {
+    box-shadow: 8px 10px 8px rgba(0, 0, 0, 0.3);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 3%;
+  }
+  .my-style-texts {
+    padding: 1rem;
+    margin: 1rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .border-saya {
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    border-radius: 0.5rem; /* opsional, bisa pakai class bootstrap juga */
+  }
+  .my-animation-img {
+    animation: gambar-sm 1s forwards;
+  }
+  .my-animation-texst {
+    animation: teks-sm 1.3s forwards;
+  }
+
+  .my-animation-img2.show {
+    animation: gambar-sm 1s forwards;
+  }
+  .my-animation-texst2.show {
+    animation: teks-sm 1.3s forwards;
+  }
+
+  .my-animation-img3.show {
+    animation: gambar-sm 1s forwards;
+  }
+  .my-animation-texst3.show {
+    animation: teks-sm 1.3s forwards;
+  }
+}
+
+@keyframes gambar-sm {
+  0% {
+    transform: translateX(150%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes teks-sm {
+  0% {
+    transform: translateX(-150%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .my-animation-img {
+    animation: gambar 1s forwards;
+  }
+  .my-animation-texst {
+    animation: teks 1.3s forwards;
+  }
+
+  .my-animation-img2.show {
+    animation: gambar2 1s forwards;
+  }
+  .my-animation-texst2.show {
+    animation: teks2 1.3s forwards;
+  }
+
+  .my-animation-img3.show {
+    animation: gambar 1s forwards;
+  }
+  .my-animation-texst3.show {
+    animation: teks 1.3s forwards;
+  }
+}
+
+@keyframes gambar {
+  0% {
+    transform: translateX(150%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes teks {
+  0% {
+    transform: translateX(150%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes gambar2 {
+  0% {
+    transform: translateX(-150%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes teks2 {
+  0% {
+    transform: translateX(-150%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

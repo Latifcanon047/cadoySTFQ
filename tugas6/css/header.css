@@ -1,0 +1,70 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #333;
+  background-color: #f8f8f8;
+}
+.header {
+  background: linear-gradient(to right, #02c5c5 20%, #02dada 50%, #00a0a0 110%);
+  color: white;
+  padding: 1rem 0;
+}
+
+.logo {
+  max-width: 80px;
+  border-radius: 50%;
+  background-color: white;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.my-header-texts {
+  color: black;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .header-text {
+    text-align: center;
+  }
+}
+
+/* responsive text alignment ala Foundation */
+@media screen and (min-width: 640px) {
+  /* breakpoint medium */
+  .medium-text-left {
+    text-align: left !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .logo {
+    max-width: 90px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 2.5rem;
+    margin-right: 5rem;
+  }
+  .my-header-texts {
+    margin-left: 3rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    max-width: 120px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 2.5rem;
+    margin-right: 6rem;
+  }
+  .my-header-texts {
+    margin-left: 7rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+  }
+}

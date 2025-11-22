@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran</title>
+</head>
+<body>
+    <h2>Formulir Pendaftaran</h2>
+    <form>
+        <label for="nama">Nama:</label><br>
+        <input type="text" id="nama" name="nama"><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="password">Kata Sandi:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+
+        <label for="jk">Jenis Kelamin:</label><br>
+        <select id="jk" name="jk">
+            <option value="laki-laki">Laki-laki</option>
+            <option value="perempuan">Perempuan</option>
+            <option value="lainnya">Lainnya</option>
+        </select><br><br>
+
+        <label for="jk">Agama:</label><br>
+        <select name="jk" id="jk">
+             <option value="Islam">Islam</option>
+             <option value="katolik">katolik</option>
+             <option value="lainnya">lainnya</option>
+        </select> <br><br>
+
+        <label>Status:</label><br>
+        <input type="radio" id="nikah" name="status" value="Nikah">
+        <label for="nikah">Nikah</label>
+        <input type="radio" id="belum" name="status" value="Belum Nikah">
+        <label for="belum">Belum Nikah</label>
+        <input type="radio" id="cerai" name="status" value="Cerai">
+        <label for="cerai">Cerai</label><br><br>
+
+        <label for="alamat">Alamat:</label><br>
+        <textarea id="alamat" name="alamat" rows="3" cols="50"></textarea><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>

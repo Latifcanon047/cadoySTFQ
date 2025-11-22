@@ -1,0 +1,29 @@
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  padding: 2rem 0;
+}
+
+.gambar-footer {
+  width: 2em;
+  height: 2em;
+  border-radius: 25%;
+  object-fit: cover;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.m-saya {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .gambar-footer {
+    width: 3em;
+    height: 3em;
+  }
+  .m-saya {
+    margin-bottom: 1.5rem;
+  }
+}

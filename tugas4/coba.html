@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Pendaftaran</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 350px;
+    }
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #28a745;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Form Pendaftaran</h2>
+    <form id="registerForm">
+      <div class="form-group">
+        <label>Nama Lengkap:</label>
+        <input type="text" id="nama" required>
+        <div class="error" id="namaError"></div>
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" id="email" required>
+        <div class="error" id="emailError"></div>
+      </div>
+      <div class="form-group">
+        <label>Nomor HP:</label>
+        <input type="text" id="hp" required>
+        <div class="error" id="hpError"></div>
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" id="password" required>
+        <div class="error" id="passwordError"></div>
+      </div>
+      <button type="submit">Daftar</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // cegah submit otomatis
+      let isValid = true;
+
+      // Ambil nilai input
+      const nama = document.getElementById("nama").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const hp = document.getElementById("hp").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      // Reset pesan error
+      document.getElementById("namaError").textContent = "";
+      document.getElementById("emailError").textContent = "";
+      document.getElementById("hpError").textContent = "";
+      document.getElementById("passwordError").textContent = "";
+
+      // Validasi Nama
+      if (nama === "") {
+        document.getElementById("namaError").textContent = "Nama tidak boleh kosong!";
+        isValid = false;
+      }
+
+      // Validasi Email (regex sederhana)
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!email.match(emailPattern)) {
+        document.getElementById("emailError").textContent = "Format email tidak valid!";
+        isValid = false;
+      }
+
+      // Validasi Nomor HP (hanya angka dan minimal 10 digit)
+      const hpPattern = /^[0-9]{10,15}$/;
+      if (!hp.match(hpPattern)) {
+        document.getElementById("hpError").textContent = "Nomor HP harus angka (10-15 digit)!";
+        isValid = false;
+      }
+
+      // Validasi Password (minimal 6 karakter)
+      if (password.length < 6) {
+        document.getElementById("passwordError").textContent = "Password minimal 6 karakter!";
+        isValid = false;
+      }
+
+      // Jika valid, tampilkan alert
+      if (isValid) {
+        alert("Pendaftaran berhasil!\nSelamat datang, " + nama);
+      }
+    });
+  </script>
+</body>
+</html>

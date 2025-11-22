@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulir Pendaftaran</title>
+  <link rel="stylesheet" href="daftar.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="logo-mstq.png" alt="logo-mstq" width="100" height="100">
+        <div class="header-text">
+          <h1>MSTQ Ar-Rosyadah</h1>
+          <p>Mencetak Generasi Qur’ani, Berilmu, Berakhlak Mulia <br>
+              Menuju Kehidupan <strong>Mulia di Dunia & Akhirat</strong>
+          </p>
+            <p style="margin-top: 10px; font-size: 0.95em; color: #f0f0f0;">
+                Jl. Gunung Salak Endah, Kp. Suka Maju RT 03/04, Desa Gunung Bunder I, Kecamatan Pamijahan, Bogor 16810
+            </p>
+        </div>
+    </div>
+    <div class="nav">
+        <ul>
+          <li>
+            <a href="index.html">Kegiatan keagamaan</a>
+            <a href="kegiatan-akademik.html">Kegiatan Akademik</a>
+            <a href="kegiatan-ekstrakurikuler.html">kegiatan ekstrakurikuler</a>
+            <a href="daftar.html">Daftar</a>
+          </li>
+        </ul>
+    </div>
+
+    <div class="main">
+      <div class="left"><img src="https://i.pinimg.com/1200x/bc/aa/d4/bcaad41dee91238903613b1b51d062ec.jpg" alt=""></div>
+      <div class="form-container">
+        <h2>Formulir Pendaftaran Santri</h2>
+        
+        <div class="success" id="successMsg">✅ Pendaftaran berhasil!</div>
+        <div class="error" id="errorMsg">⚠️ Harap isi semua field!</div>
+        
+        <form id="pendaftaranForm">
+          <label for="nama">Nama Lengkap</label>
+          <input type="text" id="nama" name="nama">
+
+          <label for="ttl">Tempat, Tanggal Lahir</label>
+          <input type="text" id="ttl" name="ttl">
+
+          <label for="jk">Jenis Kelamin</label>
+          <select id="jk" name="jk">
+            <option value="">-- Pilih --</option>
+            <option value="Laki-laki">Laki-laki</option>
+            <option value="Perempuan">Perempuan</option>
+          </select>
+
+          <label for="alamat">Alamat</label>
+          <textarea id="alamat" name="alamat" rows="3"></textarea>
+
+          <label for="telepon">Nomor HP</label>
+          <input type="tel" id="telepon" name="telepon">
+
+          <label for="pendidikan">Pendidikan Terakhir</label>
+          <input type="text" id="pendidikan" name="pendidikan">
+
+          <label for="nisn">NISN</label>
+          <input type="text" id="nisn" name="nisn">
+
+          <label for="nik">NIK</label>
+          <Input type="text" id="nik" name="nik"></Input>
+
+          <button type="submit">Daftar Sekarang</button>
+        </form>
+      </div>
+      <div class="right"><img src="https://i.pinimg.com/736x/fc/c4/06/fcc406e7173beb0fa15c2d7623d029c6.jpg" alt=""></div>
+    </div>
+    <div class="footer">
+      <p>© 2025 |MSTQ Ar-Rosyadah</p>
+      <div class="social-links">
+        <a href="https://facebook.com" target="_blank"><img src="https://i.pinimg.com/736x/25/ea/59/25ea5941311b06c6cec08f99bf5d72a5.jpg" alt="facebook logo"></a> | 
+        <a href="https://instagram.com" target="_blank"><img src="https://i.pinimg.com/1200x/0a/8f/e8/0a8fe8a2a34ffbb2483b1ac49d5dd24e.jpg" alt="instagram logo"></a> | 
+        <a href="https://youtube.com" target="_blank"><img src="https://i.pinimg.com/1200x/0d/5d/d4/0d5dd485fdb3e33a6a77bff6da306fb6.jpg" alt="you tube logo"></a> | 
+        <a href="https://wa.me/6281234567890" target="_blank"><img src="https://i.pinimg.com/736x/da/1c/d5/da1cd5e80c7d65c991a8a370b921ded4.jpg" alt="whatsapp logo"></a>
+      </div>
+    </div>
+  <script src="daftar.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: left;
+  }
+  .header img {
+    margin-bottom: 10px;
+  }
+  .nav ul {
+    flex-direction: column;
+  }
+  .kegiatan-item {
+    flex-direction: column;
+    margin: 5px;
+  }
+  .kegiatan-item img {
+    border-radius: 10px;
+  }
+  .kegiatan-text {
+    padding: 10px;
+  }
+  .kegiatan2-item {
+    flex-direction: column;
+    margin: 5px;
+  }
+  .kegiata2-item img {
+    border-radius: 10px;
+  }
+  .kegiatan2-text {
+    padding: 10px;
+  }
+  .kegiatan3-item {
+    flex-direction: column;
+    margin: 5px;
+  }
+  .kegiatan3-item img {
+    border-radius: 10px;
+  }
+  .kegiatan3-text {
+    padding: 10px;
+  }
+  .kegiatan4-item {
+    flex-direction: column;
+    margin: 5px;
+  }
+  .kegiatan4-item img {
+    border-radius: 10px;
+  }
+  .kegiatan4-text {
+    padding: 10px;
+  }
+}

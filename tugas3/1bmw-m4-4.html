@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pembelian Mobil BMW M4</title>
+</head>
+<body>
+    <h2>Formulir Pembelian Mobil BMW M4</h2>
+    <form>
+        <label for="nama">Nama Lengkap:</label><br>
+        <input type="text" id="nama" name="nama" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="telepon">No. Telepon:</label><br>
+        <input type="tel" id="telepon" name="telepon" required><br><br>
+
+        <label for="warna">Pilih Warna Mobil:</label><br>
+        <select id="warna" name="warna" required>
+            <option value="">--Pilih Warna--</option>
+            <option value="Hitam">Hitam</option>
+            <option value="Putih">Putih</option>
+            <option value="Biru">Biru</option>
+            <option value="abu-abu">Abu-abu</option>
+        </select><br><br>
+        <label for="alamat">Alamat Pengiriman:</label><br>
+        <textarea id="alamat" name="alamat" rows="3" cols="70" required></textarea><br><br>
+
+        <label for="pembayaran">Metode Pembayaran:</label><br>
+        <select id="pembayaran" name="pembayaran" required>
+            <option value="">--Pilih Metode--</option>
+            <option value="Tunai">Tunai</option>
+            <option value="Kredit">Kredit</option>
+            <option value="Transfer Bank">Transfer Bank</option>
+        </select><br><br>
+
+        <button type="submit">Pesan Sekarang</button>
+    </form>
+</body>

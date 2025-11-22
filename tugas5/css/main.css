@@ -1,0 +1,132 @@
+    .main {
+      padding: 40px 20px;
+      text-align: center;
+      height: auto;
+      width: auto;
+      background: rgba(0,0,0,0.12) url('https://i.pinimg.com/736x/0a/bc/d5/0abcd5acd0207e7ad71c0ef03322a019.jpg') no-repeat center center/cover;
+      background-size: cover;
+    }
+
+    .main ul{
+      list-style: none;
+      padding: 0;
+    }
+
+    h2 {
+      color: #1e8449;
+      margin-bottom: 30px;
+      font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+    h3 {
+      color: #117a37;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .alenia {
+      text-indent: 20px;
+    }
+    
+    .kegiatan-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      gap: 15px;
+      animation-name: sholat;
+      animation-duration: 2s;
+    }
+    
+    @keyframes sholat {
+      0% {opacity: 0; transform: translatex(800px);}
+      100% {opacity: 1; transform: translatex(0);}
+    }
+
+    .kegiatan-item img {
+      width: 300px;
+      height: 300px;
+      border-radius: 8px;
+      box-shadow: 8px 10px 8px rgba(0,0,0,0.3);
+    }
+
+    .kegiatan-text {
+      text-align: left;
+    }
+
+     .kegiatan2-item {
+      display: flex;
+      align-items: flex-start;
+      margin-left: 75px;
+      margin-bottom: 10px;
+      gap: 15px;
+      animation-name: akademik;
+      animation-duration: 4s;
+    }
+
+    @keyframes akademik {
+      0% {opacity: 0; transform: translatex(800px);}
+      100% {opacity: 1; transform: translatex(0);}
+    }
+
+
+    .kegiatan2-item img {
+      width: 300px;
+      height: 300px;
+      border-radius: 8px;
+      box-shadow: 8px 10px 8px rgba(0,0,0,0.3);
+    }
+
+    .kegiatan2-text {
+      text-align: left;
+    }
+
+    .kegiatan3-item {
+      display: flex;
+      align-items: flex-start;
+      margin-left: 150px;
+      margin-bottom: 10px;
+      gap: 15px;
+      animation-name: ekstrakurikuler;
+      animation-duration: 6s;
+    }
+
+    @keyframes ekstrakurikuler {
+      0% {opacity: 0; transform: translatex(800px);}
+      100% {opacity: 1; transform: translatex(0);}
+    }
+
+    .kegiatan3-item img {
+      width: 300px;
+      height: 300px;
+      border-radius: 8px;
+      box-shadow: 8px 10px 8px rgba(0,0,0,0.3);
+    }
+
+    .kegiatan3-text {
+      text-align: left;
+    }
+
+    .kegiatan4-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      gap: 15px;
+      animation: maulid;
+      animation-duration: 8s;
+    }
+
+     @keyframes maulid {
+      0% {opacity: 0; transform: translatex(800px);}
+      100% {opacity: 1; transform: translatex(0);}
+    }
+
+    .kegiatan4-item img {
+      width: 300px;
+      height: 300px;
+      border-radius: 8px;
+      box-shadow: 8px 10px 8px rgba(0,0,0,0.3);
+    }
+
+    .kegiatan4-text {
+      text-align: left;
+    }

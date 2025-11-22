@@ -1,0 +1,235 @@
+    .body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+    }
+    .container {
+      max-width: auto;
+      margin: auto;
+      padding: 20px;
+      background: #f3f8f9;
+    }
+    .header {
+      background: linear-gradient(to right, #15e0e0 20%, #5debd1 50%, #27bcc1 110%);
+      color: white;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      border-radius: 4px;
+    }
+    .header img {
+      width: 100px;
+      height: 100px;
+      margin-right: 28px;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      background-color: #edf8f8;
+    }
+   
+    .header-text {
+      flex: 1;
+      text-align: left;
+     
+    }
+    .header-text h1 {
+        margin: 0;
+        font-size: 2.6em;
+        letter-spacing: 2px;
+        font-weight: 700;
+        text-shadow: 0 2px 8px rgba(44,62,80,0.12);
+    }
+    .header-text p {
+        margin: 0;
+        font-size: 20px;
+        color: #f8f8f8;
+        font-weight: 500;
+    }
+
+    .nav {
+    background: #0c9e38;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    }
+
+    .nav ul {
+      list-style: none;
+      margin: 7px;
+      padding: 2px 2px;
+      display: flex;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      background-color:#10c10a;
+      border-radius: 2px;
+      padding: 5px 5px;
+      margin: 0px 12px;
+      display: inline-flex;
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .nav a:hover {
+      background: #15e0e0;
+      transition-duration: 0.2s;
+      border-radius: 4px;
+    }
+
+    .main {
+      padding: 40px 20px;
+      text-align: center;
+      height: auto;
+      width: auto;
+      background: rgba(0,0,0,0.12) url('https://i.pinimg.com/736x/0a/bc/d5/0abcd5acd0207e7ad71c0ef03322a019.jpg') no-repeat center center/cover;
+      background-size: cover;
+    }
+
+    .main ul{
+      list-style: none;
+      padding: 0;
+    }
+
+    h2 {
+      color: #1e8449;
+      margin-bottom: 30px;
+      font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+    h3 {
+      color: #117a37;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .kegiatan-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      gap: 15px;
+      animation-name: sholat;
+      animation-duration: 2s;
+    }
+    
+    @keyframes sholat {
+      0% {opacity: 0; transform: translatex(800px);}
+      100% {opacity: 1; transform: translatex(0);}
+    }
+
+    .kegiatan-item img {
+      width: 300px;
+      height: 300px;
+      border-radius: 8px;
+      box-shadow: 8px 10px 8px rgba(0,0,0,0.3);
+    }
+
+    .kegiatan-text {
+      text-align: left;
+    }
+
+     .kegiatan2-item {
+      display: flex;
+      align-items: flex-start;
+      margin-left: 75px;
+      margin-bottom: 10px;
+      gap: 15px;
+      animation-name: akademik;
+      animation-duration: 4s;
+    }
+
+    @keyframes akademik {
+      0% {opacity: 0; transform: translatex(800px);}
+      100% {opacity: 1; transform: translatex(0);}
+    }
+
+
+    .kegiatan2-item img {
+      width: 300px;
+      height: 300px;
+      border-radius: 8px;
+      box-shadow: 8px 10px 8px rgba(0,0,0,0.3);
+    }
+
+    .kegiatan2-text {
+      text-align: left;
+    }
+
+    .kegiatan3-item {
+      display: flex;
+      align-items: flex-start;
+      margin-left: 150px;
+      margin-bottom: 10px;
+      gap: 15px;
+      animation-name: ekstrakurikuler;
+      animation-duration: 6s;
+    }
+
+    @keyframes ekstrakurikuler {
+      0% {opacity: 0; transform: translatex(800px);}
+      100% {opacity: 1; transform: translatex(0);}
+    }
+
+    .kegiatan3-item img {
+      width: 300px;
+      height: 300px;
+      border-radius: 8px;
+      box-shadow: 8px 10px 8px rgba(0,0,0,0.3);
+    }
+
+    .kegiatan3-text {
+      text-align: left;
+    }
+
+    .kegiatan4-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      gap: 15px;
+      animation: maulid;
+      animation-duration: 8s;
+    }
+
+     @keyframes maulid {
+      0% {opacity: 0; transform: translatex(800px);}
+      100% {opacity: 1; transform: translatex(0);}
+    }
+
+    .kegiatan4-item img {
+      width: 300px;
+      height: 300px;
+      border-radius: 8px;
+      box-shadow: 8px 10px 8px rgba(0,0,0,0.3);
+    }
+
+    .kegiatan4-text {
+      text-align: left;
+    }
+
+    .footer {
+      background: #286e60;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      text-decoration: none;
+    }
+    .social-links img {
+      width: 30px;
+      height: 30px;
+      vertical-align: middle;
+      border-radius: 25%;
+    }

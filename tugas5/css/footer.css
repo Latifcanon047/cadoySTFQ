@@ -1,0 +1,45 @@
+ .footer {
+      background: #286e60;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 15px;
+    }
+
+    .judul {
+      display: flex;
+      justify-content: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1em;
+      font-weight: 600;
+    }
+
+    .social-links a {
+      color: #ffffff;
+      margin: 0 5px;
+      display: inline-block;
+      text-decoration: none;
+      flex-direction: column;
+      font-size: 0.8em;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .social-links a:hover {
+      color: #00d4d4;
+      text-decoration: underline;
+    }
+
+    .social-links a:active {
+      color: #00fffb;
+    }
+    .social-links img {
+      width: 30px;
+      height: 30px;
+      vertical-align: middle;
+      border-radius: 25%;
+      object-fit: cover;
+      margin-top: 10px;
+    }

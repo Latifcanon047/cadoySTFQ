@@ -1,0 +1,127 @@
+.main {
+  background: rgba(0, 0, 0, 0.12)
+    url("https://i.pinimg.com/736x/0a/bc/d5/0abcd5acd0207e7ad71c0ef03322a019.jpg")
+    no-repeat center center/cover !important;
+}
+
+#pendaftaranForm {
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-top: 1.5rem !important;
+  margin-bottom: 2rem !important;
+  margin-left: 0.2rem !important;
+  margin-right: 0.2rem !important;
+  padding: 0.8rem;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  border-radius: 7px;
+  animation: daftar;
+  animation-duration: 0.9s;
+}
+
+@keyframes daftar {
+  from {
+    transform: translatey(200%);
+    opacity: 0;
+  }
+  to {
+    transform: translatey(0);
+    opacity: 1;
+  }
+}
+
+#pendaftaranForm input,
+#pendaftaranForm select,
+#pendaftaranForm textarea,
+#pendaftaranForm button {
+  border-radius: 5px;
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
+}
+#pendaftaranForm input:nth-child(2) {
+  animation-delay: 0.6s;
+}
+#pendaftaranForm input:nth-child(4) {
+  animation-delay: 0.8s;
+}
+#pendaftaranForm select {
+  animation-delay: 1s;
+}
+#pendaftaranForm textarea {
+  animation-delay: 1.2s;
+}
+#pendaftaranForm input:nth-child(10) {
+  animation-delay: 1.4s;
+}
+#pendaftaranForm input:nth-child(12) {
+  animation-delay: 1.6s;
+}
+#pendaftaranForm input:nth-child(14) {
+  animation-delay: 1.8s;
+}
+#pendaftaranForm input:nth-child(16) {
+  animation-delay: 2s;
+}
+#pendaftaranForm button {
+  animation-delay: 2.2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#successMsg {
+  border: none !important;
+}
+#errorMsg {
+  border: none !important;
+}
+
+.my-img {
+  max-width: 100%;
+  height: auto !important;
+  border-radius: 10px;
+  box-shadow: 8px 10px 8px rgba(0, 0, 0, 0.3);
+  animation: slideInLeft 1.2s ease forwards;
+}
+
+.my-img2 {
+  max-width: 100%;
+  height: auto !important;
+  border-radius: 10px;
+  box-shadow: 8px 10px 8px rgba(0, 0, 0, 0.3);
+  animation: slideInRight 1.2s ease forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-200%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@media (min-width: 1024px) {
+  #pendaftaranForm {
+    margin: 2rem;
+    padding: 2rem;
+  }
+}

@@ -1,0 +1,95 @@
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar {
+  background: #0c9e38 !important;
+}
+
+/* Default untuk desktop */
+.offcanvas-start {
+  width: 15rem !important; /* sekitar 320px */
+}
+
+/* Untuk mobile (layar kecil) */
+@media (max-width: 768px) {
+  .offcanvas-start {
+    width: 40% !important; /* lebih fleksibel di mobile */
+  }
+}
+
+.offcanvas-start.show {
+  transform: translateX(0);
+}
+
+/* Kecilkan tombol burger */
+.navbar-toggler {
+  padding: 0.2rem 0.4rem; /* kecilin padding */
+  border: 1px solid #fff; /* border lebih tipis */
+  border-radius: 4px; /* opsional, biar sudutnya lebih halus */
+}
+
+/* Kecilkan ikon burger */
+.navbar-toggler-icon {
+  width: 2em; /* default ~1.5em */
+  height: 1em;
+}
+
+.off-canvas .close-button {
+  right: 0.5rem;
+  left: auto;
+  top: 0.5rem;
+}
+
+.title-bar-title {
+  margin-left: 1em;
+  margin-top: 0.5em;
+}
+
+.nav-sidebar {
+  background: #cfcfcf !important;
+}
+
+.offcanvas-menu li {
+  margin-top: 1rem;
+}
+.daftar-nav {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  margin-right: 1rem !important;
+}
+
+.daftar-nav li {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.daftar-nav a {
+  color: antiquewhite; /* warna default */
+  transition: all 0.3s ease; /* animasi halus */
+  text-decoration: none; /* hilangkan garis bawah */
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  padding: 1rem !important;
+}
+
+.daftar-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* opsional: kasih highlight */
+}
+
+.offcanvas-menu a {
+  color: black; /* warna default */
+  transition: all 0.3s ease; /* efek halus */
+  margin-top: 0.4rem;
+}
+
+.offcanvas-menu a:hover {
+  background-color: #f0f0f0; /* highlight background saat hover */
+  color: #0c9e38; /* ganti warna teks */
+  transform: translateX(7px); /* geser sedikit ke kanan */
+}
+
+.cancel {
+  color: black;
+}

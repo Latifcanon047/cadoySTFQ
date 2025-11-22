@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hitung belah ketupat</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    </head>
+    <body>
+        <div class="containter-fuild my-bg">
+            <div class="row d-flex justify-content-center">
+                <H4 class="text-center my-4">Hitung keliling dan luas <b>belah ketupat</b></H4>
+                <div class="col-5">
+                    <div class="d-flex flex-column bg-dark rounded-4 text-white p-5 ">
+                        <h6>masukan <span class="text-primary fs-5">diagonal</span> untuk menghitun <span class="text-primary fs-5">luas</span> dan masukan <span class="text-warning fs-5">sisi</span> untuk menghitung <span class="text-warning fs-5">keliling</span></h6>
+
+                        <label for="ukuran">diagonal 1:</label>
+                        <input class="mb-2" type="number" id="diagonal1" placeholder="00">
+
+                        <label for="ukuran">diagonal 2:</label>
+                        <input class="mb-2" type="number" id="diagonal2" placeholder="00">
+
+                        <label for="ukuran">sisi:</label>
+                        <input class="mb-2" type="number" id="sisi" placeholder="00">
+
+                        <button type="button" id="hitung" class="mx-auto rounded-3 px-3 py-1 my-3 bayangan">Hitung</button>
+                        
+                        <div class="bg-white text-dark p-2 rounded-3">
+                            <H4 class="text-center">hasil:</H4>
+                            <p id="luas">luas: ............</p>
+                            <p id="keliling">keliling: ............</p>
+                            <p id="ukuranLuas">ukuran luas belah ketupat: ............</p>
+                            <P id="ukuranKeliling">ukuran keliling belah ketupat: ...........</P>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="jquery-2.js"></script>
+    </body>
+</html>

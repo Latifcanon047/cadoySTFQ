@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Layout</title>
+</head>
+     <style>
+        body { font-family:  Arial, Helvetica, sans-serif; }
+        .header { background: #5ecbec; color: white; text-align: center; padding: 20px 0; }
+        .nav { background: #f2f2f2; width: 200px; vertical-align: top; }
+        .nav ul { list-style-type: none; padding: 0; }
+        .nav li { margin: 10px 0;}
+        .nav a { text-decoration: none; color: #333; }
+        .main { padding: 20px; }
+        .footer { background: #ddd; text-align: center; padding: 10px 0; font-size: 14px; }
+    </style>
+<body>
+    <table width="900" align="center" border="1" cellpadding="0" cellspacing="0">
+        <tr>
+            <td colspan="2" class="header">
+                <h1>Tugas Layout</h1>
+                <p>Praktik 1 - 4: Dasar HTML</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="nav" >
+                <h3>Menu Navigasi</h3>
+                <ol>
+                    <li><a href="gambar.html" target="mainFrame">Gambar & Link</a></li>
+                    <li><a href="daftar.html" target="mainFrame">Daftar</a></li>
+                    <li><a href="tabel.html" target="mainFrame">Tabel</a></li>
+                    <li><a href="tombol sumbit.html" target="mainFrame">Formulir</a></li>
+                </ol>
+            </td>
+            <td class="main" width="80%">
+                <iframe name="mainFrame" src="gambar.html" width="100%" height="400px" frameborder="0" ></iframe>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="footer">
+                 Praktik Layout 
+        </tr>
+    </table>
+</body>
+</html>

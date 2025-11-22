@@ -158,6 +158,11 @@ tambahData.addEventListener('click', (e) => {
         return;
     }
 
+    if (!/^[A-Za-z\s]*$/.test(nama)) {
+        showToast("Isi semua sesuai dengan ketentuan!", "danger");
+        return;
+    } 
+
     if (editIndex !== null) {
         santri[editIndex] = { nama, alamat, TTL, jumlahHafalan, HafalanKitab };
         editIndex = null;
@@ -183,10 +188,12 @@ tambahData.addEventListener('click', (e) => {
 tbody.addEventListener('click', (e) => {
     if (e.target.classList.contains('hapus')) {
         const index = e.target.dataset.index;
+        showConfirm('anda yakin mau hapus data ini??',() =>{
         santri.splice(index, 1);
         renderWithCurrentSort();
         showToast("Data dihapus!", "info");
         localStorage.setItem("dataSantri2", JSON.stringify(santri));
+        });
     }
 
     if (e.target.classList.contains('edit')) {
@@ -204,6 +211,42 @@ tbody.addEventListener('click', (e) => {
         tambahData.classList.add('btn-success');
 
     }
+});
+
+const modal = document.getElementById("modalConfirm");
+const modalMsg = document.getElementById("modalMessage");
+const btnOk = document.getElementById("btnOk");
+const btnCancel = document.getElementById("btnCancel");
+const dontAskAgain = document.getElementById("dontAskAgain");
+
+let actionConfirm = null;
+let skipAsk = false;
+
+function showConfirm(message, callback) {
+    if (skipAsk) {
+        callback();
+        return;
+    }
+
+    modalMsg.textContent = message;
+    modal.style.display = "flex";
+    actionConfirm = callback;
+}
+
+btnOk.addEventListener("click", () => {
+    modal.style.display = "none";
+
+    if (dontAskAgain.checked) {
+        skipAsk = true;
+    }
+
+    if (typeof actionConfirm === "function") {
+        actionConfirm();
+    }
+});
+
+btnCancel.addEventListener("click", () => {
+    modal.style.display = "none";
 });
 
 function kapital(inputElement) {
@@ -256,7 +299,6 @@ function hitungUmur(tanggalLahir) {
 
     return umur;
 }
-
 
 const inputCari = document.getElementById('cari');
 

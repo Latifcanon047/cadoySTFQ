@@ -182,3 +182,37 @@ footer a:hover {
     border-color: #e74c3c !important;
     box-shadow: 0 0 0 0.25rem rgba(231, 76, 60, .25) !important;
 }
+
+.my-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.my-modal-box {
+    background: #ffffff;
+    padding: 25px;
+    width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.dont-ask {
+    font-size: 14px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card - Mobile Sidebar</title>
+    <style>
+        /* === RESET & BASE === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* === CONTAINER SYSTEM === */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* === DESKTOP NAVBAR (FLEXBOX) === */
+        .navbar {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: #f0f5ff;
+            color: #2575fc;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* === MOBILE SIDEBAR === */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 280px;
+            height: 100vh;
+            background: white;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            transition: left 0.3s ease;
+            z-index: 999;
+            padding: 80px 2rem 2rem;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .sidebar-item {
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-link:hover {
+            background: #f0f5ff;
+            color: #2575fc;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* === PROFILE CARD (GRID) === */
+        .profile-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #667eea;
+            margin: 0 auto 1rem;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-title {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .profile-description {
+            color: #777;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* === BUTTONS (FLEXBOX) === */
+        .profile-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            max-width: 120px;
+        }
+
+        .btn-follow {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-message {
+            background: #f0f5ff;
+            color: #667eea;
+        }
+
+        .btn-contact {
+            background: #764ba2;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* === SPACING SYSTEM === */
+        .mt-1 { margin-top: 1rem; }
+        .mt-2 { margin-top: 2rem; }
+        .mb-1 { margin-bottom: 1rem; }
+        .mb-2 { margin-bottom: 2rem; }
+        .p-1 { padding: 1rem; }
+        .p-2 { padding: 2rem; }
+
+        /* === RESPONSIVE DESIGN === */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .profile-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                max-width: 200px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+            
+            .sidebar {
+                width: 250px;
+            }
+        }
+
+        /* Hamburger Animation */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Overlay for mobile -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Mobile Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <ul class="sidebar-menu">
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">🏠 Home</a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">👤 About</a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">💼 Services</a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">📞 Contact</a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">⚙️ Settings</a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">🚪 Logout</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Desktop Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">MyProfile</div>
+            
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link">About</a></li>
+                <li><a href="#" class="nav-link">Services</a></li>
+                <li><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 style="color: white; text-align: center; margin-bottom: 2rem;">Team Profiles</h1>
+        
+        <div class="profile-section">
+            <!-- Profile Card 1 -->
+            <div class="profile-card">
+                <img src="https://picsum.photos/200/200?random=1" alt="Profile" class="profile-image">
+                <h2 class="profile-name">Sarah Johnson</h2>
+                <p class="profile-title">Frontend Developer</p>
+                <p class="profile-description">
+                    Passionate about creating beautiful and functional user interfaces with modern web technologies.
+                </p>
+                <div class="profile-actions">
+                    <button class="btn btn-follow">Follow</button>
+                    <button class="btn btn-message">Message</button>
+                    <button class="btn btn-contact">Contact</button>
+                </div>
+            </div>
+
+            <!-- Profile Card 2 -->
+            <div class="profile-card">
+                <img src="https://picsum.photos/200/200?random=2" alt="Profile" class="profile-image">
+                <h2 class="profile-name">Mike Chen</h2>
+                <p class="profile-title">UI/UX Designer</p>
+                <p class="profile-description">
+                    Transforming complex problems into intuitive, beautiful and digital product designs.
+                </p>
+                <div class="profile-actions">
+                    <button class="btn btn-follow">Follow</button>
+                    <button class="btn btn-message">Message</button>
+                    <button class="btn btn-contact">Contact</button>
+                </div>
+            </div>
+
+            <!-- Profile Card 3 -->
+            <div class="profile-card">
+                <img src="https://picsum.photos/200/200?random=3" alt="Profile" class="profile-image">
+                <h2 class="profile-name">Alex Rodriguez</h2>
+                <p class="profile-title">Backend Developer</p>
+                <p class="profile-description">
+                    Building robust and scalable server-side applications with cutting-edge technologies.
+                </p>
+                <div class="profile-actions">
+                    <button class="btn btn-follow">Follow</button>
+                    <button class="btn btn-message">Message</button>
+                    <button class="btn btn-contact">Contact</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        // Toggle sidebar
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        // Close sidebar when clicking overlay
+        overlay.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        // Close sidebar when clicking on a link
+        document.querySelectorAll('.sidebar-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+        });
+
+        // Close sidebar when pressing Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                hamburger.classList.remove('active');
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

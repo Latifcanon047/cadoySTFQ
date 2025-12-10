@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>chekout</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="css/beli-sekarang.css">
+    </head>
+    <body>
+        
+        <header class="header container-fluid">
+            <a class="link d-flex align-items-center justify-content-start">
+                <div class="mx-3">
+                    <i class="fa-solid fa-chevron-left back-icon"></i>
+                </div>
+                <h3 class="mb-0">Chekout</h3>
+            </a>
+        </header>
+        
+        <nav id="beli-sekarang" class="container-fluid nav-beli-sekarang">
+
+        </nav>
+
+        <main>
+            <div id="pilih-alamat" class="container-fluid addAlamat d-flex align-items-center justify-content-center my-3">
+                <h3 class="text-primary py-3">+ Alamat</h3>
+            </div>
+
+            <div id="detail-beli" class="product-description row mx-1 g-0">
+                
+            </div>
+        </main>
+
+        <div id="modul-input-alamat" class="modul-input-alamat">
+            <div class="d-flex align-items-center justify-content-start py-3 py-1">
+                <div id="tutup-modal" class="mx-3">
+                    <i class="fa-solid fa-chevron-left back-icon" style="cursor: pointer;"></i>
+                </div>
+                <h3 class="mb-0 ps-3">Pilih Alamat</h3>
+            </div>
+            <div class="px-3 pt-2">
+                <label for="nama-penerima">Nama Penerima</label>
+                <input type="text" id="nama-penerima">
+                <label for="alamat">Alamat</label>
+                <textarea type="text" id="alamat"></textarea>
+            </div>
+            <div class="simpan-container">
+                <button id="btn-simpan" class="btn-simpan">Simpan</button>
+            </div>
+        </div>
+
+        <script src="js/beli-sekarang.js"></script>
+    </body>
+</html>

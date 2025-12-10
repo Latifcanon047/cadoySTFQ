@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartu Profil Interaktif v2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#profileContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.profile-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+}
+
+.profile-photo {
+    width: 100px; /* Ukuran foto */
+    height: 100px;
+    border-radius: 50%; /* Membuat foto menjadi bulat */
+    object-fit: cover; /* Memastikan foto terlihat baik */
+    margin-bottom: 15px;
+    border: 3px solid #007bff;
+}
+
+.profile-card h3 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+.profile-card p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+/* Tombol Like */
+.like-btn {
+    color: #666;
+}
+.like-btn.liked {
+    color: red; /* Warna saat sudah di-Like */
+}
+
+/* Tombol Follow */
+.follow-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+}
+.follow-btn.followed {
+    background-color: #28a745; /* Warna hijau saat diikuti */
+}
+
+/* Tombol Pesan */
+.message-btn {
+    color: #ffc107;
+}
+
+.input-form {
+    background-color: #e9ecef;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px auto;
+    width: fit-content;
+    text-align: center;
+}
+.input-form input, .input-form button {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.input-form button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Kartu Profil Interaktif</h1>
+        <p>Data tersimpan di LocalStorage</p>
+    </header>
+
+    <div id="newCardInput" class="input-form">
+        <h2>Tambah Kartu Profil Baru</h2>
+        <input type="text" id="nameInput" placeholder="Nama Profil">
+        <input type="text" id="bioInput" placeholder="Bio Singkat">
+        <input type="url" id="photoInput" placeholder="URL Foto Profil (Opsional)">
+        <button id="addCardBtn">Buat Kartu Baru</button>
+    </div>
+
+    <hr>
+
+    <main id="profileContainer">
+        </main>
+
+    <script>
+        // Data awal (Termasuk URL foto default) jika localStorage kosong
+const DEFAULT_PHOTO = 'https://via.placeholder.com/100/007bff/ffffff?text=P'; // Foto default
+const defaultProfiles = [
+    { id: 1, name: "Budi", bio: "Web Developer", photo: 'https://i.pravatar.cc/100?img=1', likes: 10, isFollowed: false, isLiked: false },
+    { id: 2, name: "Citra", bio: "UI/UX Designer", photo: 'https://i.pravatar.cc/100?img=2', likes: 5, isFollowed: true, isLiked: false }
+];
+
+const STORAGE_KEY = 'interactiveProfiles_v2';
+let profiles = [];
+
+// --- FUNGSI LOCAL STORAGE ---
+function loadProfiles() {
+    const storedProfiles = localStorage.getItem(STORAGE_KEY);
+    if (storedProfiles) {
+        profiles = JSON.parse(storedProfiles);
+    } else {
+        profiles = defaultProfiles;
+        saveProfiles();
+    }
+}
+
+function saveProfiles() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(profiles));
+}
+
+// --- FUNGSI UTAMA UNTUK RENDERING KARTU ---
+function renderProfiles() {
+    const container = document.getElementById('profileContainer');
+    container.innerHTML = '';
+
+    profiles.forEach(profile => {
+        const card = document.createElement('div');
+        card.className = 'profile-card';
+        card.setAttribute('data-id', profile.id);
+
+        const likeClass = profile.isLiked ? 'liked' : '';
+        const followText = profile.isFollowed ? 'FOLLOWED' : 'FOLLOW';
+        const followClass = profile.isFollowed ? 'followed' : '';
+        const photoUrl = profile.photo || DEFAULT_PHOTO; // Gunakan foto default jika URL kosong
+
+        card.innerHTML = `
+            <img src="${photoUrl}" alt="Foto Profil ${profile.name}" class="profile-photo">
+            <h3>${profile.name}</h3>
+            <p>${profile.bio}</p>
+            <div class="actions">
+                <button class="action-btn message-btn" title="Kirim Pesan">
+                    <i class="fa-solid fa-message"></i> Chat
+                </button>
+
+                <button class="action-btn follow-btn ${followClass}" data-action="follow">
+                    ${followText}
+                </button>
+            </div>
+            <div class="actions">
+                <button class="action-btn like-btn ${likeClass}" data-action="like" title="Suka">
+                    <i class="fa-solid fa-heart"></i> <span class="like-count">${profile.likes}</span>
+                </button>
+            </div>
+        `;
+
+        // Menambahkan Event Listener
+        card.querySelector('.like-btn').addEventListener('click', () => toggleLike(profile.id));
+        card.querySelector('.follow-btn').addEventListener('click', () => toggleFollow(profile.id));
+        card.querySelector('.message-btn').addEventListener('click', () => sendMessage(profile.name));
+
+        container.appendChild(card);
+    });
+}
+
+// --- FUNGSI INTERAKSI ---
+
+// 1. Like
+function toggleLike(id) {
+    const profile = profiles.find(p => p.id === id);
+    if (profile) {
+        if (profile.isLiked) {
+            profile.likes--;
+            profile.isLiked = false;
+        } else {
+            profile.likes++;
+            profile.isLiked = true;
+        }
+
+        saveProfiles();
+        renderProfiles();
+    }
+}
+
+// 2. Follow
+function toggleFollow(id) {
+    const profile = profiles.find(p => p.id === id);
+    if (profile) {
+        profile.isFollowed = !profile.isFollowed;
+        saveProfiles();
+        renderProfiles();
+    }
+}
+
+// 3. Message (Chat)
+function sendMessage(name) {
+    alert(`Mengirim pesan ke ${name}. (Fitur ini dapat diintegrasikan dengan API chat di masa depan)`);
+}
+
+// 4. Tambah Kartu Baru
+document.getElementById('addCardBtn').addEventListener('click', () => {
+    const nameInput = document.getElementById('nameInput');
+    const bioInput = document.getElementById('bioInput');
+    const photoInput = document.getElementById('photoInput');
+
+    const name = nameInput.value.trim();
+    const bio = bioInput.value.trim();
+    const photo = photoInput.value.trim();
+
+    if (name && bio) {
+        // Tentukan ID baru
+        const maxId = profiles.length > 0 ? Math.max(...profiles.map(p => p.id)) : 0;
+        const newId = maxId + 1;
+
+        const newCard = {
+            id: newId,
+            name: name,
+            bio: bio,
+            photo: photo,
+            likes: 0,
+            isFollowed: false,
+            isLiked: false
+        };
+
+        profiles.push(newCard);
+        saveProfiles();
+        renderProfiles();
+
+        // Kosongkan input
+        nameInput.value = '';
+        bioInput.value = '';
+        photoInput.value = '';
+    } else {
+        alert('Nama dan Bio harus diisi!');
+    }
+});
+
+
+// --- INISIALISASI APLIKASI ---
+document.addEventListener('DOMContentLoaded', () => {
+    loadProfiles(); // Muat data dari LocalStorage
+    renderProfiles(); // Tampilkan kartu
+});
+    </script>
+</body>
+</html>

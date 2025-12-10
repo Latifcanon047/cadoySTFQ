@@ -1,0 +1,183 @@
+[
+    {
+        "productImage": "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd",
+        "productTitle": "Redmi Note 9 Pro - Smartphone dengan Kamera Quad 64MP dan Baterai 5020mAh Tahan Lama",
+        "productPrice": 6000000,
+        "productRating": 4.5,
+        "reviewCount": 200,
+        "productStock": 100,
+        "productDescription": "Redmi Note 9 Pro hadir dengan kamera quad 64MP yang mampu menangkap foto detail dan jernih di berbagai kondisi cahaya. Dibekali baterai besar 5020mAh yang tahan seharian penuh, performanya didukung Snapdragon seri 700 untuk multitasking, gaming, dan streaming tanpa lag. Desain bodinya kokoh dan modern dengan layar 6.67 inci FHD+ yang nyaman untuk aktivitas harian."
+
+    },
+    {
+        "productImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf",
+        "productTitle": "Samsung Galaxy S21 - Flagship dengan Dynamic AMOLED 120Hz dan Kamera Pro Grade 8K",
+        "productPrice": 8500000,
+        "productRating": 4.8,
+        "reviewCount": 430,
+        "productStock": 80,
+        "productDescription": "Samsung Z Flip menawarkan pengalaman ponsel lipat modern yang compact dan futuristik. Layar Dynamic AMOLED-nya sangat indah dan bisa dilipat menjadi ukuran kecil yang mudah masuk kantong. Performa flagship, kamera solid, dan desain unik menjadikannya pilihan bagi pengguna yang ingin tampil beda."
+    },
+    {
+        "productImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab",
+        "productTitle": "iPhone 13 Pro Max - Smartphone Premium dengan Chip A15 Bionic dan Kamera Cinematic Mode",
+        "productPrice": 18000000,
+        "productRating": 4.9,
+        "reviewCount": 1200,
+        "productStock": 50,
+        "productDescription": "iPhone 11 hadir dengan chip A13 Bionic yang masih sangat cepat untuk standar saat ini. Kamera dual system-nya menghadirkan Ultra Wide yang luas dan kualitas foto malam yang sangat baik. Layar Liquid Retina memberikan warna akurat dan tajam. Cocok untuk pengguna yang ingin iPhone berkualitas dengan harga lebih terjangkau."
+    },
+    {
+        "productImage": "https://images.unsplash.com/photo-1598327105666-5b89351aff97",
+        "productTitle": "Xiaomi Poco X3 NFC - HP Gaming dengan Refresh Rate 120Hz dan Baterai 5160mAh Super Cepat",
+        "productPrice": 3500000,
+        "productRating": 4.6,
+        "reviewCount": 900,
+        "productStock": 70,
+        "productDescription": "Xiaomi Poco X3 NFC dirancang untuk gamer dengan refresh rate 120Hz dan chipset Snapdragon 732G yang stabil untuk game populer. Baterai besar 5160mAh menjamin penggunaan panjang tanpa sering mengisi daya. Kamera quad 64MP-nya cukup tajam dan desainnya sangat sporty, cocok untuk pengguna aktif."
+    },
+    {
+        "productImage": "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd",
+        "productTitle": "Oppo Reno 6 - Smartphone dengan AI Portrait Video dan Desain Glow Design yang Elegan",
+        "productPrice": 5200000,
+        "productRating": 4.3,
+        "reviewCount": 210,
+        "productStock": 100,
+        "productDescription": "Oppo Reno 6 menonjol lewat fitur AI Portrait Video yang menghasilkan video bokeh halus ala DSLR. Desain Glow Design-nya terlihat elegan dan tidak mudah meninggalkan bekas sidik jari. Performa kencang, layar AMOLED mulus, serta kamera tajam membuatnya cocok untuk pengguna yang suka foto dan konten sosial media."
+    },
+    {
+        "productImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
+        "productTitle": "Vivo V21 - Ponsel dengan OIS Front Camera 44MP dan Desain Ultra Slim 7.29mm",
+        "productPrice": 4400000,
+        "productRating": 4.2,
+        "reviewCount": 150,
+        "productStock": 140,
+        "productDescription": "Vivo V21 menawarkan kamera depan 44MP dengan OIS, sangat cocok untuk selfie hingga perekaman vlog malam hari. Desain Ultra Slim 7.29mm membuatnya terasa ringan dan mewah di tangan. Layarnya AMOLED dengan refresh rate tinggi yang nyaman untuk dipakai sehari-hari."
+    },
+    {
+        "productImage": "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd",
+        "productTitle": "Samsung A52 - Smartphone Mid-Range dengan Water Resistance IP67 dan Quad Camera Versatile",
+        "productPrice": 4200000,
+        "productRating": 4.4,
+        "reviewCount": 370,
+        "productStock": 110,
+        "productDescription": "Samsung A52 hadir dengan rating tahan air IP67 dan layar Super AMOLED 90Hz yang cerah. Kamera utamanya stabil dan tajam untuk foto maupun video. Baterainya besar, performanya stabil, dan desainnya modern, menjadikannya salah satu HP mid-range terbaik Samsung."
+    },
+    {
+        "productImage": "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd",
+        "productTitle": "Redmi 10 - Entry Level Smartphone dengan MediaTek Helio G88 dan Layar 90Hz Smooth Display",
+        "productPrice": 2500000,
+        "productRating": 4.1,
+        "reviewCount": 80,
+        "productStock": 200,
+        "productDescription": "Redmi 10 dilengkapi layar 90Hz yang halus dan chipset Helio G88 yang cukup tangguh untuk penggunaan harian. Kamera 50MP-nya mampu menghasilkan foto yang detail dalam kondisi terang. Cocok untuk pengguna yang ingin HP hemat tapi tetap punya fitur lengkap."
+    },
+    {
+        "productImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab",
+        "productTitle": "iPhone 11 - iPhone Terjangkau dengan Chip A13 Bionic dan Kamera Ultra Wide Dual System",
+        "productPrice": 9000000,
+        "productRating": 4.7,
+        "reviewCount": 500,
+        "productStock": 60,
+        "productDescription": "iPhone 11 hadir dengan chip A13 Bionic yang masih sangat cepat untuk standar saat ini. Kamera dual system-nya menghadirkan Ultra Wide yang luas dan kualitas foto malam yang sangat baik. Layar Liquid Retina memberikan warna akurat dan tajam. Cocok untuk pengguna yang ingin iPhone berkualitas dengan harga lebih terjangkau."
+    },
+    {
+        "productImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf",
+        "productTitle": "Samsung Z Flip - Smartphone Foldable dengan Layar Dinamis dan Desain Compact yang Futuristik",
+        "productPrice": 13000000,
+        "productRating": 4.9,
+        "reviewCount": 650,
+        "productStock": 40,
+        "productDescription": "Samsung Z Flip menawarkan pengalaman ponsel lipat modern yang compact dan futuristik. Layar Dynamic AMOLED-nya sangat indah dan bisa dilipat menjadi ukuran kecil yang mudah masuk kantong."
+    },
+    {
+        "productImage": "https://images.unsplash.com/photo-1598327105666-5b89351aff97",
+        "productTitle": "Realme 8 Pro - Ponsel dengan Kamera 108MP dan Super AMOLED Display untuk Konten Multimedia",
+        "productPrice": 3500000,
+        "productRating": 4.4,
+        "reviewCount": 310,
+        "productStock": 110,
+        "productDescription": "Realme 8 Pro hadir dengan kamera 108MP yang mampu menghasilkan foto detail tinggi. Layar Super AMOLED memberi warna yang hidup, cocok untuk video dan media sosial. Desainnya ringan dan nyaman, dengan performa stabil untuk gaming ringan hingga menengah."
+    },
+    {
+        "productImage": "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd",
+        "productTitle": "Redmi Note 10 - Smartphone dengan AMOLED DotDisplay dan Baterai Fast Charging 33W",
+        "productPrice": 2800000,
+        "productRating": 4.3,
+        "reviewCount": 270,
+        "productStock": 150,
+        "productDescription": "Redmi Note 10 menggunakan AMOLED DotDisplay yang cerah dan tajam untuk harga entry-mid. Fast charging 33W membuat pengisian daya menjadi cepat. Kamera 48MP cukup solid, dan performa chipset-nya stabil untuk tugas harian."
+    },
+    {
+        "productImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab",
+        "productTitle": "iPhone XR - iPhone dengan Liquid Retina HD Display dan Single Camera System yang Powerful",
+        "productPrice": 6500000,
+        "productRating": 4.5,
+        "reviewCount": 700,
+        "productStock": 90,
+        "productDescription": "iPhone XR menawarkan Liquid Retina Display yang cerah dan akurat, serta chip A12 Bionic yang masih kuat untuk game dan multitasking modern. Kamera single-nya tetap mampu menghasilkan foto natural dengan Smart HDR. Cocok untuk pengguna yang ingin iPhone desain modern dengan harga lebih hemat."
+    },
+    {
+        "productImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf",
+        "productTitle": "Samsung A32 - Smartphone dengan Multi Camera System 64MP dan Infinity-U Display yang Luas",
+        "productPrice": 3200000,
+        "productRating": 4.2,
+        "reviewCount": 210,
+        "productStock": 130,
+        "productDescription": "Samsung A32 hadir dengan kamera 64MP versatile dan layar Super AMOLED 90Hz yang mulus. Baterainya besar dan tahan lama, serta desainnya stylish. Cocok untuk penggunaan media sosial, streaming, dan gaming ringan."
+    },
+    {
+        "productImage": "https://images.unsplash.com/photo-1598327105666-5b89351aff97",
+        "productTitle": "Realme C25 - HP Entry Level dengan Baterai 6000mAh Massive dan Performa Gaming yang Stabil",
+        "productPrice": 2100000,
+        "productRating": 4.0,
+        "reviewCount": 120,
+        "productStock": 200,
+        "productDescription": "Realme C25 menawarkan baterai massive 6000mAh yang bisa bertahan dua hari. Chipset gaming entry-level membuatnya cukup untuk game ringan. Desainnya kuat dan layar luas cocok untuk aktivitas belajar atau hiburan. Salah satu pilihan terbaik di kelas harga murah."
+    },
+    {
+        "productImage": "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd",
+        "productTitle": "Xiaomi Mi 11 - Flagship Killer dengan Snapdragon 888 dan Layar WQHD+ 120Hz Premium Display",
+        "productPrice": 9000000,
+        "productRating": 4.8,
+        "reviewCount": 490,
+        "productStock": 75,
+        "productDescription": "Xiaomi Mi 11 hadir dengan Snapdragon 888 yang sangat bertenaga. Layar WQHD+ 120Hz memberikan visual super halus. Kamera 108MP dan fitur video tingkat profesional menjadikannya pilihan tepat untuk fotografi dan konten kreator. Desainnya premium dan ringan, baterai cepat, serta dukungan fast charging yang powerful."
+    },
+    {
+        "productImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf",
+        "productTitle": "Samsung M32 - Smartphone dengan Super AMOLED Display dan Kamera Macro 64MP untuk Detail",
+        "productPrice": 2900000,
+        "productRating": 4.1,
+        "reviewCount": 180,
+        "productStock": 160,
+        "productDescription": "Samsung M32 memiliki layar Super AMOLED 90Hz yang cerah untuk menonton film dan scrolling media sosial. Kamera 64MP-nya cukup tajam di berbagai kondisi. Baterai besar 6000mAh membuatnya tahan lama, cocok untuk aktivitas sepanjang hari."
+    },
+    {
+        "productImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab",
+        "productTitle": "iPhone SE 2020 - iPhone Compact dengan Chip A13 Bionic dan Touch ID dalam Desain Klasik",
+        "productPrice": 5500000,
+        "productRating": 4.3,
+        "reviewCount": 350,
+        "productStock": 100,
+        "productDescription": "iPhone SE 2020 menggunakan chip A13 Bionic dalam bodi compact klasik, memberikan performa flagship dengan harga terjangkau. Kamera single-nya memiliki kualitas tinggi berkat pemrosesan Apple. Cocok bagi pengguna yang suka ponsel kecil tapi kencang."
+    },
+    {
+        "productImage": "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd",
+        "productTitle": "Redmi 9A - Smartphone Basic dengan MediaTek Helio G25 dan Baterai 5000mAh untuk Sehari Penuh",
+        "productPrice": 1500000,
+        "productRating": 3.9,
+        "reviewCount": 140,
+        "productStock": 220,
+        "productDescription": "Redmi 9A menawarkan baterai besar 5000mAh yang awet seharian penuh. Chipset Helio G25 cukup stabil untuk kebutuhan harian seperti chat, belajar online, dan streaming. Desainnya simpel dan ringan—cocok untuk pemakaian dasar atau HP kedua."
+    },
+    {
+        "productImage": "https://images.unsplash.com/photo-1598327105666-5b89351aff97",
+        "productTitle": "Realme GT Master - Smartphone dengan Desain Luggage Inspired dan Snapdragon 778G 5G",
+        "productPrice": 5100000,
+        "productRating": 4.7,
+        "reviewCount": 420,
+        "productStock": 85,
+        "productDescription": "Realme GT Master hadir dengan desain koper ikonik karya Naoto Fukasawa. Chipset Snapdragon 778G 5G memberikan performa kencang untuk gaming dan multitasking. Layarnya AMOLED smooth, kameranya tajam, dan baterainya mendukung fast charging super cepat."
+    }
+]

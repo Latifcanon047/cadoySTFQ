@@ -4,7 +4,7 @@
             const body = document.body;
             const profileSection = document.getElementById('profile-section');
             const modal = document.getElementById('modalMessage');
-            let profile = [
+            const profile = [
                             {
                                 profileImage: "https://picsum.photos/200/200?random=1",
                                 profileName: "Sarah Johnson",
@@ -28,10 +28,32 @@
                                 profileName: "David Wilson",
                                 profileTitle: "Full Stack Developer",
                                 Description: "Menguasai kedua sisi frontend dan backend untuk memberikan solusi teknologi yang komprehensif dan terintegrasi."
+                            },
+                            {
+                                profileImage: "https://picsum.photos/200/200?random=5",
+                                profileName: "Alex Doe",
+                                profileTitle: "UI Designer",
+                                Description: "Seorang designer yang fokus pada estetika digital."
+                            },
+                            {
+                                profileImage: "https://picsum.photos/200/200?random=6",
+                                profileName: "John Smith",
+                                profileTitle: "Frontend Dev",
+                                Description: "Pecinta JavaScript, suka React dan kopi."
                             }
                         ];
 
+            let likeData = JSON.parse(localStorage.getItem("likeData")) || {};
+
             profile.forEach((item, index) => {
+
+                if (!likeData[index]) {
+                    likeData[index] = {
+                        liked: false,
+                        count: 0
+                    };
+                }
+
                 const div =document.createElement('div');
 
                 div.innerHTML = `
@@ -43,15 +65,59 @@
                             ${item.Description}
                         </p>
                         <div class="profile-actions">
+                            <button class="like-box" aria-label="Like" type="button" data-id="${index}">
+                                <i class="bi like-icon" aria-hidden="true"></i>
+                                <span class="like-count"></span>
+                            </button>
                             <button class="btn btn-follow">Follow</button>
                             <button class="btn btn-message" data-index="${index}">Message</button>
-                            <button class="btn btn-contact">Contact</button>
-                        </div>
+                        </div>                    
                     </div>
                     `;
                 profileSection.appendChild(div);
                 console.log(profileSection);
             })
+
+            document.querySelectorAll(".like-box").forEach(btn => {
+                const id = btn.getAttribute("data-id");
+                const icon = btn.querySelector(".like-icon");
+                const count = btn.querySelector(".like-count");
+
+                if (likeData[id].liked) {
+                    icon.classList.add("liked", "bi-heart-fill");
+                } else {
+                    icon.classList.add("bi-heart");
+                }
+
+                count.textContent = likeData[id].count;
+            });
+
+            document.querySelectorAll(".like-box").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const id = btn.getAttribute("data-id");
+                const icon = btn.querySelector(".like-icon");
+                const count = btn.querySelector(".like-count");
+
+                if (likeData[id].liked) {
+                    // Un-Like
+                    likeData[id].liked = false;
+                    likeData[id].count--;
+                    icon.classList.remove("liked", "bi-heart-fill");
+                    icon.classList.add("bi-heart");
+                } else {
+                    // Like
+                    likeData[id].liked = true;
+                    likeData[id].count++;
+                    icon.classList.add("liked", "bi-heart-fill");
+                    icon.classList.remove("bi-heart");
+                }
+
+                count.textContent = likeData[id].count;
+
+                // Simpan ke localStorage
+                localStorage.setItem("likeData", JSON.stringify(likeData));
+            });
+        });
 
             hamburger.addEventListener('click', () => {
                 hamburger.classList.add('active');
@@ -123,19 +189,30 @@
                     modal.innerHTML = "";
                     modal.appendChild(div);
                     modal.classList.add('active');
+                    overlay.classList.add('active');
 
                     const modalClose = div.querySelector('#modalClose');
                     modalClose.addEventListener('click', () => {
                     modal.classList.remove('active');
+                    overlay.classList.remove('active');
                     });
 
                     const modalSend = document.getElementById('modalSend');
+                    const messageInput = document.getElementById('messageInput');
                     modalSend.addEventListener('click', () => {
-                        document.getElementById('messageInput').value = "";
+                        messageInput.value = "";
                         setTimeout(() => {
                             modal.classList.remove('active');
+                            overlay.classList.remove('active');
                         }, 150);
                     });
+
+                    modal.addEventListener('keydown', (e) => {
+                        if (e.key === "Enter" && !e.shiftKey && messageInput.value.trim() !== "") {
+                        modalSend?.click();
+                        overlay.classList.remove('active');
+                    }
+                    })
                 }
             })
 

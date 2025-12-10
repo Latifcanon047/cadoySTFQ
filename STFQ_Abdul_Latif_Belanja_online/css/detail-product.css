@@ -1,0 +1,15 @@
+.detail-container {
+    display: grid;
+    margin: 0;  
+    padding: 0;
+}
+
+.detail-img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+}
+
+.product-detail {
+    margin-bottom: 0px;
+}

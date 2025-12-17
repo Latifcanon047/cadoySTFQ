@@ -1,0 +1,63 @@
+.header {
+    background-color: white;
+    padding: 20px 0;
+    border: 1px solid rgba(0,0,0,0.05);
+    margin-bottom: 10px;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.title-box, .alamat-box {
+    position: relative;
+}
+
+/* 2 baris saja */
+.clamped {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;        /* Ini aman, tidak bikin warning */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4em;
+}
+
+/* Fade di bagian bawah */
+.fadeTitle, .fadeAlamat {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    pointer-events: none;
+}
+
+/* Tombol “baca selengkapnya” */
+.toggleTitle, .toggleAlamat {
+    display: inline-block;
+    margin-top: 2px;
+    color: #3b82f6;
+    cursor: pointer;}
+
+/* Mode full */
+.expanded {
+    display: block;               /* Hilangkan clamp */
+}
+
+.expanded + .fadeAlamat, .expanded + .fadeTitle {
+    display: none;                /* Hilangkan fade */
+}
+
+.garis-tipis {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.garis-tebal {
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+}
+
+.batalkan {
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 7px 18px;
+    background-color: white;
+}

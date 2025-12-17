@@ -1,5 +1,5 @@
-</html><!DOCTYPE html>
-    <html lang="id">
+<!DOCTYPE html>
+<html lang="id">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,20 +21,14 @@
         </nav>
         
         <!-- Header -->
-        <header class="header mb-0">
-            <div class="container header-container">
-                <div class="logo-section d-none">
-                    <div class="logo">BJ</div>
-                    <div>
-                        <h1 class="store-name">Belanja Online</h1>
-                    </div>
-                </div>
-                <div>
+        <header class="header sticky-top">
+            <div class="link d-flex align-items-center px-3">
+                <a class="text-decoration-none text-dark pe-3" href="index.html">
                     <i class="fa-solid fa-chevron-left back-icon"></i>
-                </div>
+                </a>
                 <div class="search-box">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" class="search-input" placeholder="Cari buku, atau alat belajar...">
+                    <input id="cariProduk" type="text" for class="search-input" placeholder="Cari buku, atau alat belajar...">
                     <span class="fa-solid fa-camera d-none"></span>
                 </div>
                 <div>
@@ -51,10 +45,66 @@
         
         <!-- Main Content -->
         <main class="detail-container">        
-            <div class="row" id="product-detail">
+            <div class="row g-0" id="product-detail">
                 
             </div>
         </main>
+
+        <div id="modul-troli" class="modul-troli d-flex flex-column">
+            <div class="row g-0">
+                <div class="d-flex align-items-center justify-content-start py-4 garis-tipis">
+                    <div id="tutup-modul-troli" class="px-3">
+                        <i class="fa-solid fa-chevron-left back-icon" style="cursor: pointer;"></i>
+                    </div>
+                    <h3 class="mb-0 ps-3">Pilih Alamat Pengiriman</h3>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row g-0 mt-3">
+                    <div class="col-3">
+                        <img id="productImg" alt="" class="img-fluid img-description pe-2">
+                    </div>
+                    <div class="title-description col-7 fs-6 pe-4 d-flex flex-column">
+                        <div id="productTitle" class="mb-2"></div>
+                        <div id="productStock" class="mt-auto mb-2 px-3 fs-6 fw-semibold"></div>
+                    </div>
+                    <div class="price-container col-2 d-flex flex-column align-items-end text-end pe-2 ps-5">
+                        <span id="productPrice" class="fs-6 fw-semibold"></span>
+                        <div class="jumlah-produk d-flex mt-auto bg-light">
+                            <button id="btn-kurang" class="p-2 border-0">-</button>
+                            <span id="jumlah-pesanan" class="p-2">1</span>
+                            <button id="btn-tambah" class="p-2 border-0">+</button>
+                        </div>
+                    </div>
+                </div>        
+            </div> 
+            <div id="tambahkanKeTroli" class="nav-troli mt-auto">
+                <div class="bg-danger w-100 m-3 d-flex align-items-center justify-content-center">
+                    <div class="d-flex justify-content-center fw-bold py-3">
+                        <span class="text-light fw-semibold fs-5 btn-tambah-troli">Tambahkan ke troli</span>
+                    </div>
+                </div>
+            </div>
+            <div id="modul-input-jumlah" class="modul-input-jumlah">
+                <div id="tutup-modul-jumlah" class="text-end">
+                    <i class="fa-solid fa-xmark back-icon pe-1" style="cursor: pointer;"></i>
+                </div>
+                <div class="header-jumlah d-flex align-items-center justify-content-center">
+                    <h3 class="mb-0">Jumlah Pesanan</h3>
+                </div>
+
+                <div class="jumlah-container p-1">
+                    <div class="control-jumlah d-flex justify-content-center align-items-center bg-light p-3 rounded">
+                        <input type="number" id="modul-jumlah" class="px-4 modul-jumlah">
+                    </div>
+                </div>
+
+                <div class="simpan-container">
+                    <button id="modul-simpan-jumlah" class="btn-simpan">Simpan</button>
+                </div>
+            </div>
+            <div id="overlay-modul" class="overlay"></div>
+        </div>
         
         <!-- Footer -->
         <footer class="footer d-none">
@@ -96,11 +146,6 @@
             </div>
         </footer>
 
-        <div class="overlay" id="overlay"></div>
-
-        <div id="modul-troli" class="modul-troli">
-            
-        </div>
 
         <script src="js/detail.js"></script>
     </body>

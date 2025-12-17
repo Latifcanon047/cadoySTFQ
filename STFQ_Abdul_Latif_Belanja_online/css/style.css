@@ -1,10 +1,10 @@
-
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 10px;
     margin-bottom: 90px;
     cursor: pointer;
+    align-items: stretch;
 }
 
 .product-card {
@@ -13,6 +13,9 @@
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .product-card a {
@@ -70,7 +73,3 @@
     font-size: 10px;
 }
 
-.product-stock {
-    margin: 5px 0;
-    font-size: 10px;
-}

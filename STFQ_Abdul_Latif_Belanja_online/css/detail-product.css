@@ -13,3 +13,126 @@
 .product-detail {
     margin-bottom: 0px;
 }
+
+.modul-troli {
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1500;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                opacity .6s ease;
+    overflow-y: auto;
+    pointer-events: none;
+}
+
+.modul-troli.active {
+    opacity: 1;
+    right: 0;
+    pointer-events: auto;
+}
+
+.garis-tipis {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.nav-troli {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 0;
+}
+
+/* === MODAL WRAPPER === */
+.modul-input-jumlah {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.85);
+    background: #fff;
+    padding: 15px 10px;
+    border-radius: 14px;
+    width: 80%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.25s ease;
+}
+
+.modul-input-jumlah.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* === HEADER === */
+.header-jumlah {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.back-icon {
+    font-size: 18px;
+}
+
+/* === INPUT CONTAINER === */
+.control-jumlah {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.modul-jumlah {
+    width: 100%;
+    text-align: center;
+    padding: 8px 5px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* === BUTTON SIMPAN === */
+.simpan-container {
+    margin-top: 15px;
+}
+
+.btn-simpan {
+    width: 90%;
+    background: #007bff;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+.overlay-modul {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.overlay-modul.active {
+    opacity: 1;
+    visibility: visible;
+}

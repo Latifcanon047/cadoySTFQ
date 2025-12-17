@@ -20,6 +20,7 @@ body {
     background-color: #f5f7fa;
     color: var(--dark);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* Navbar */
@@ -117,12 +118,6 @@ body {
     font-weight: bold;
 }
 
-.store-name {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--secondary);
-}
-
 .store-tagline {
     color: var(--gray);
     font-size: 14px;
@@ -201,11 +196,11 @@ body {
     background-color: var(--border);
 }
 
-.cart-count {
+.cart-icon.cart-count {
     position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: none;
+    top: -50px;
+    right: -50px;
+    background-color: var(--accent);
     color: white;
     font-size: 12px;
     width: 20px;

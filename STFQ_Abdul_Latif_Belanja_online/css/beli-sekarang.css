@@ -11,7 +11,13 @@
 }
 
 .addAlamat {
-    border-bottom: 3px solid rgba(0,0,0,0.05)
+    border-bottom: 3px solid rgba(0,0,0,0.05);
+    z-index: 2001;
+}
+.addAlamatBaru {
+    margin: 0.5rem;
+    border: 2px solid rgba(30, 100, 232, 0.7);
+    width: 100%;
 }
 
 .detail-img {
@@ -31,7 +37,7 @@
     left: 0;
 }
 
-.beli-link {
+.beli-sekarang {
     display: flex;
     color: white;
     text-decoration: none;
@@ -43,7 +49,7 @@
     border-radius: 4px;
 }
 
-.modul-input-alamat {
+.modul-input-alamat, .modul-pilih-alamat {
     opacity: 0;
     position: fixed;
     top: 0;
@@ -58,11 +64,13 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    pointer-events: none;
 }
 
-.modul-input-alamat.active {
+.modul-input-alamat.active , .modul-pilih-alamat.active{
     opacity: 1;
     right: 0;
+    pointer-events: auto;
 }
 
 /* Styling untuk label */
@@ -133,3 +141,98 @@
     margin: 7px 15px;
     background-color: rgb(255, 0, 119);
 }
+
+.alamat-item {
+    padding: 10px 0;
+    border-bottom: 2px solid rgba(0,0,0,0.05);
+}
+
+/* Hilangkan border pada item terakhir */
+.alamat-item:last-child {
+    border-bottom: none;
+}
+
+/* === MODAL WRAPPER === */
+.modul-input-jumlah {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.85);
+    background: #fff;
+    padding: 15px 10px;
+    border-radius: 14px;
+    width: 80%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.25s ease;
+}
+
+.modul-input-jumlah.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* === HEADER === */
+.header-jumlah {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.back-icon {
+    font-size: 18px;
+}
+
+/* === INPUT CONTAINER === */
+.control-jumlah {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.modul-jumlah {
+    width: 100%;
+    text-align: center;
+    padding: 8px 5px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* === BUTTON SIMPAN === */
+.simpan-container {
+    margin-top: 15px;
+}
+
+.btn-simpan {
+    width: 90%;
+    background: #007bff;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+.overlay-modul {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4); /* gelap lembut */
+    z-index: 9998;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.25s ease;
+}
+
+.overlay-modul.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+

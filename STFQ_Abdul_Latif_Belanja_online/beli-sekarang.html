@@ -10,13 +10,13 @@
     </head>
     <body>
         
-        <header class="header container-fluid">
-            <a class="link d-flex align-items-center justify-content-start">
-                <div class="mx-3">
-                    <i class="fa-solid fa-chevron-left back-icon"></i>
+        <header class="header container-fluid sticky-top">
+            <div class="link d-flex align-items-center justify-content-start">
+                <div id="back" class="mx-3">
+                    <i id="backToDetail" class="fa-solid fa-chevron-left back-icon"></i>
                 </div>
                 <h3 class="mb-0">Chekout</h3>
-            </a>
+            </div>
         </header>
         
         <nav id="beli-sekarang" class="container-fluid nav-beli-sekarang">
@@ -24,18 +24,35 @@
         </nav>
 
         <main>
-            <div id="pilih-alamat" class="container-fluid addAlamat d-flex align-items-center justify-content-center my-3">
-                <h3 class="text-primary py-3">+ Alamat</h3>
+            <div id="pilih-alamat" class="p-2 addAlamat my-2">
+                <div class="d-flex align-items-center justify-content-center">
+                    <h3 class="text-primary py-1">+ Alamat</h3>
+                </div>
             </div>
 
-            <div id="detail-beli" class="product-description row mx-1 g-0">
+            <div id="detail-beli" class="product-description row mt-3 mx-1 g-0">
                 
             </div>
         </main>
 
+        <div id="modul-pilih-alamat" class="modul-pilih-alamat">
+            <div class="d-flex align-items-center justify-content-start py-3 py-1">
+                <div id="tutup-modal-pilih" class="mx-3">
+                    <i class="fa-solid fa-chevron-left back-icon" style="cursor: pointer;"></i>
+                </div>
+                <h3 class="mb-0 ps-3">Pilih Alamat Pengiriman</h3>
+            </div>
+            <div id="tambah-alamat-baru" class="container-fluid d-flex align-items-center justify-content-center my-3" style="cursor: pointer;">
+                <h3 class="text-primary py-3 addAlamatBaru text-center">+ Tambah Alamat Baru</h3>
+            </div>
+            <div id="alamat-ready" class="pt-2">
+
+            </div>
+        </div>
+
         <div id="modul-input-alamat" class="modul-input-alamat">
             <div class="d-flex align-items-center justify-content-start py-3 py-1">
-                <div id="tutup-modal" class="mx-3">
+                <div id="tutup-modal-input" class="mx-3">
                     <i class="fa-solid fa-chevron-left back-icon" style="cursor: pointer;"></i>
                 </div>
                 <h3 class="mb-0 ps-3">Pilih Alamat</h3>
@@ -50,6 +67,27 @@
                 <button id="btn-simpan" class="btn-simpan">Simpan</button>
             </div>
         </div>
+
+        <div id="modul-input-jumlah" class="modul-input-jumlah">
+            <div id="tutup-modul-jumlah" class="text-end">
+                <i class="fa-solid fa-xmark back-icon pe-1" style="cursor: pointer;"></i>
+            </div>
+            <div class="header-jumlah d-flex align-items-center justify-content-center">
+                <h3 class="mb-0">Jumlah Pesanan</h3>
+            </div>
+
+            <div class="jumlah-container p-1">
+                <div class="control-jumlah d-flex justify-content-center align-items-center bg-light p-3 rounded">
+                    <input type="number" id="modul-jumlah" class="px-4 modul-jumlah">
+                </div>
+            </div>
+
+            <div class="simpan-container">
+                <button id="modul-simpan-jumlah" class="btn-simpan">Simpan</button>
+            </div>
+        </div>
+
+        <div id="overlay-modul" class="overlay-modul"></div>
 
         <script src="js/beli-sekarang.js"></script>
     </body>

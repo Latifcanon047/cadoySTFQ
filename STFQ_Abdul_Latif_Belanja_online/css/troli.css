@@ -1,0 +1,5 @@
+.cek-item {
+    transform: scale(1.2);
+    cursor: pointer;
+    border: solid 2px rgba(69, 154, 250, 0.9);
+}

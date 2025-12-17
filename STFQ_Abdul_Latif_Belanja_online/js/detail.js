@@ -3,9 +3,15 @@ const id = urlParams.get("id");
 const navbar = document.querySelector('.chekout-links');
 const detailContainer = document.getElementById("product-detail");
 const modulTroli = document.getElementById('modul-troli');
-const overlay = document.getElementById('overlay');
 let produk = [];
 let p = [];
+let btnTambah = undefined;
+let btnKurang = undefined;
+let jumlah_pesanan = 1;
+let harga_satuan = null;
+let editIndex = null;
+let addTroli = [];
+
 
 function navbarChekout() {
     navbar.innerHTML = `
@@ -16,19 +22,104 @@ function navbarChekout() {
         <button id="tambah-troli" class="troli">Tambah Ke Troli</button>
     `;
 
-    modulTroli.innerHTML = `
-    <h3>hfhhfhafa</h3>
-    `
-
     const btnTambahTroli = document.getElementById('tambah-troli');
     btnTambahTroli.addEventListener('click', () => {
-        overlay.classList.add('active');
-    })
+    document.getElementById("productImg").src = p.productImage;
+    document.getElementById("productTitle").textContent = p.productTitle;
+    document.getElementById("productPrice").textContent = "Rp" + p.productPrice.toLocaleString("id-ID");
+
+    modulTroli.classList.add('active');
+    });
 };
 
-overlay.addEventListener('click', () => {
-    overlay.classList.remove('active');
+const tutupModulTroli = modulTroli.querySelector("#tutup-modul-troli");
+const overlayModul = document.getElementById("overlay-modul");
+console.log(overlayModul);
+const modulInputJumlah = document.getElementById("modul-input-jumlah");
+const jumlahDisplayMain = document.getElementById("jumlah-pesanan");
+const pesanan = document.getElementById('jumlah-pesanan');
+const btnOpenModul = document.getElementById("jumlah-pesanan");
+const btnCloseModul = document.getElementById("tutup-modul-jumlah");
+const btnSimpanModul = document.getElementById("modul-simpan-jumlah");
+
+btnTambah = document.getElementById('btn-tambah');
+btnKurang = document.getElementById('btn-kurang');
+harga_satuan = p.productPrice;
+
+btnOpenModul.addEventListener("click", () => {
+    const modulJumlah = document.getElementById("modul-jumlah");
+    modulJumlah.value = jumlah_pesanan;
+    overlayModul.classList.add('active');
+    modulInputJumlah.classList.add("active");
+});
+
+// Tutup modul
+btnCloseModul.addEventListener("click", () => {
+    modulInputJumlah.classList.remove("active");
+    overlayModul.classList.remove("active");
+});
+
+overlayModul.addEventListener('click',() => {
+    modulInputJumlah.classList.remove('active');
+    overlayModul.classList.remove('active');
+    console.log('di click');
 })
+
+// Simpan ke tampilan utama
+btnSimpanModul.addEventListener("click", () => {
+    const modulJumlahValue = Number(document.getElementById("modul-jumlah").value);
+    if (modulJumlahValue < 1) {
+        alert('Jumlah pesanan minimal 1');
+        return;
+    }
+    if (modulJumlahValue <= p.productStock) {
+        jumlahDisplayMain.textContent = modulJumlahValue;
+        jumlah_pesanan = modulJumlahValue;
+        modulInputJumlah.classList.remove("active");
+        overlayModul.classList.remove("active");
+    } else {
+        alert('stok tidak cukup');
+    }
+});
+
+tutupModulTroli.addEventListener('click', () => {
+    modulTroli.classList.remove('active');
+});
+
+btnTambah.addEventListener('click', () => {
+    if (p.productStock > jumlah_pesanan){
+        jumlah_pesanan++;
+        pesanan.textContent = jumlah_pesanan;
+    }
+});
+
+btnKurang.addEventListener('click', () => {
+    if (jumlah_pesanan > 1) {
+        jumlah_pesanan--;
+        pesanan.textContent = jumlah_pesanan;
+    }
+});
+
+const tambahKeTroli = modulTroli.querySelector('#tambahkanKeTroli');
+tambahKeTroli.addEventListener("click", () => {
+    const idp = id;
+    const productImage = p.productImage;
+    const productTitle = p.productTitle;
+    const productPrice = p.productPrice;
+    const jumlahBarang = jumlah_pesanan;
+
+    const itemAda = addTroli.find(item => item.idp === idp);
+
+    if (itemAda) {
+        itemAda.jumlahBarang += jumlahBarang;
+        console.log('jalan');
+    } else {
+        addTroli.push({idp,productImage,productTitle,productPrice,jumlahBarang});
+    }
+    localStorage.setItem('barangDiTroli', JSON.stringify(addTroli));
+    modulTroli.classList.remove('active');
+    pesanan.textContent = 1;
+});
 
 function tampilkanDetail() {
     if (p) {
@@ -53,15 +144,20 @@ function tampilkanDetail() {
 
 window.onload = () => {
     const simpanan = localStorage.getItem("dataproduk");
+    const barangDiTroli = localStorage.getItem("barangDiTroli");
 
     if (simpanan) {
         const data = JSON.parse(simpanan);           
         produk = data;
         p = produk[id];
-        console.log(p);
         tampilkanDetail();
         navbarChekout();
     } else {
         detailContainer.innerHTML = "<h2>GAGAL MEMUAT...</h2>";
+    }
+
+    if (barangDiTroli) {
+        addTroli = JSON.parse(barangDiTroli);
+        console.log(addTroli);
     }
 };

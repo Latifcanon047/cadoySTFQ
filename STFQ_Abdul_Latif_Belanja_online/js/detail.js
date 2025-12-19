@@ -27,6 +27,7 @@ function navbarChekout() {
     document.getElementById("productImg").src = p.productImage;
     document.getElementById("productTitle").textContent = p.productTitle;
     document.getElementById("productPrice").textContent = "Rp" + p.productPrice.toLocaleString("id-ID");
+    document.getElementById("productStock").textContent =  `Stok (${p.productStock})`;
 
     modulTroli.classList.add('active');
     });
@@ -34,7 +35,6 @@ function navbarChekout() {
 
 const tutupModulTroli = modulTroli.querySelector("#tutup-modul-troli");
 const overlayModul = document.getElementById("overlay-modul");
-console.log(overlayModul);
 const modulInputJumlah = document.getElementById("modul-input-jumlah");
 const jumlahDisplayMain = document.getElementById("jumlah-pesanan");
 const pesanan = document.getElementById('jumlah-pesanan');
@@ -106,6 +106,7 @@ tambahKeTroli.addEventListener("click", () => {
     const productImage = p.productImage;
     const productTitle = p.productTitle;
     const productPrice = p.productPrice;
+    const productStock = p.productStock
     const jumlahBarang = jumlah_pesanan;
 
     const itemAda = addTroli.find(item => item.idp === idp);
@@ -114,7 +115,7 @@ tambahKeTroli.addEventListener("click", () => {
         itemAda.jumlahBarang += jumlahBarang;
         console.log('jalan');
     } else {
-        addTroli.push({idp,productImage,productTitle,productPrice,jumlahBarang});
+        addTroli.push({idp,productImage,productTitle,productPrice,productStock,jumlahBarang});
     }
     localStorage.setItem('barangDiTroli', JSON.stringify(addTroli));
     modulTroli.classList.remove('active');
@@ -124,21 +125,23 @@ tambahKeTroli.addEventListener("click", () => {
 function tampilkanDetail() {
     if (p) {
         detailContainer.innerHTML = `
-            <div class="col-12 mb-5">
-                <img src="${p.productImage}" class="detail-img" alt="Produk">
-                <h4 class="text-danger fw-bold m-3">Rp${p.productPrice.toLocaleString('id-ID')}</h4>
-                <h6 class="text-muted fw-v=bold m-3"> ${p.productTitle}</h6>
-                <div class="product-rating m-3">
-                    <span class="star fs-5">★</span>
-                    <span class="rating fs-5">${p.productRating}</span>
-                    <span class="review-count fs-5">${p.reviewCount} Terjual</span>
+            <div class="col-12 mb-5  row g-0">
+                <img src="${p.productImage}" class="detail-img col-md-6" alt="Produk">
+                <div class="col-md-6 d-md-flex flex-column">
+                    <h4 class="text-danger fw-bold m-3">Rp${p.productPrice.toLocaleString('id-ID')}</h4>
+                    <h6 class="text-muted fw-semibold m-3"> ${p.productTitle}</h6>
+                    <div class="product-rating m-3">
+                        <span class="star fs-5">★</span>
+                        <span class="rating fs-5">${p.productRating}</span>
+                        <span class="review-count fs-5">${p.reviewCount} Terjual</span>
+                    </div>
                 </div>
-                <h6 class="mt-4 mx-3">Deksripsi:</h6>
-                <p class="text-secondary mx-3">${p.productDescription.toUpperCase()}</p>
+                <div  class="col-md-12 d-md-flex flex-column">
+                    <h6 class="mt-3 mb-2 mx-3">Deksripsi:</h6>
+                    <p class="text-secondary mx-3">${p.productDescription.toUpperCase()}</p>
+                </div>
             </div>
         `;
-    } else {
-        detailContainer.innerHTML = "<h2>GAGAL MEMUAT...</h2>";
     }
 }
 
@@ -152,8 +155,6 @@ window.onload = () => {
         p = produk[id];
         tampilkanDetail();
         navbarChekout();
-    } else {
-        detailContainer.innerHTML = "<h2>GAGAL MEMUAT...</h2>";
     }
 
     if (barangDiTroli) {

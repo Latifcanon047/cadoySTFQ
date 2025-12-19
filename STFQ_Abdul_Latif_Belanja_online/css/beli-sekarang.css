@@ -12,7 +12,6 @@
 
 .addAlamat {
     border-bottom: 3px solid rgba(0,0,0,0.05);
-    z-index: 2001;
 }
 .addAlamatBaru {
     margin: 0.5rem;
@@ -34,6 +33,8 @@
 .nav-beli-sekarang {
     position: fixed;
     bottom: 0;
+    background-color: white;
+    width: 100%;
     left: 0;
 }
 
@@ -235,4 +236,17 @@
     opacity: 1;
     pointer-events: auto;
 }
+
+.garis-tipis {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.garis-tebal {
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+}
+
+.product-description > :last-child {
+    border: none;
+    margin-bottom: 80px;
+}
+
 

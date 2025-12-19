@@ -21,17 +21,39 @@
         
         
         <main>
-            <div id="detailBarangDiBeli" class="row g-0">
-                
+            <div id="container-detail">
+                <div id="detailBarangDiBeli" class="row g-0">
+                    
+                </div>
             </div>
         </main>
 
-        <nav class="bg-white py-1 fixed-bottom">
+        <nav id="chekout-container" class="bg-white py-1 fixed-bottom">
             <div id="chekout" class="d-flex bg-primary my-1 mx-2 p-2 mt-0 justify-content-center align-items-center flex-column">
-                <span class="fs-6 fw-semibold text-light">Chekout</span>
-                <span class="fs-6 fw-semibold text-light">Rp.200.000.000</span>
+                
             </div>
         </nav>
+
+        <div id="modul-input-jumlah" class="modul-input-jumlah">
+            <div id="tutup-modul-jumlah" class="text-end">
+                <i class="fa-solid fa-xmark back-icon pe-1" style="cursor: pointer;"></i>
+            </div>
+            <div class="header-jumlah d-flex align-items-center justify-content-center">
+                <h3 class="mb-0">Jumlah Pesanan</h3>
+            </div>
+
+            <div class="jumlah-container p-1">
+                <div class="control-jumlah d-flex justify-content-center align-items-center bg-light p-3 rounded">
+                    <input type="number" id="modul-jumlah" class="px-4 modul-jumlah" value="">
+                </div>
+            </div>
+
+            <div class="simpan-container mx-3">
+                <button id="modul-simpan-jumlah" class="btn-simpan">Simpan</button>
+            </div>
+        </div>
+
+        <div id="overlay-modul" class="overlay-modul"></div>
 
         <script src="js/troli.js"></script>
     </body>

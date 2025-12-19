@@ -1,8 +1,18 @@
 const chekout = document.getElementById('chekout');
+const tutupModulJumlah = document.getElementById('tutup-modul-jumlah');
+const containerDetail = document.getElementById("container-detail");
+const detailBarangDiBeli = document.getElementById("detailBarangDiBeli");
+const modulInputJumlah = document.getElementById('modul-input-jumlah');
+const modulJumlah = document.getElementById('modul-jumlah');
+const btnSimpan = document.getElementById('modul-simpan-jumlah');
+const overlayModul = document.getElementById('overlay-modul'); 
 console.log(chekout);
-let produk = [];
 let barangDiTroli = [];
-let barangTerpilih = [];
+let chekoutDiTroli = [];
+let total_harga = 0;
+let barangDiPilih = [];
+let jumlah = 0;
+let indexJumlah = 0;
 
 document.getElementById('back').addEventListener('click', () => {
     window.history.back();
@@ -26,9 +36,11 @@ function tampilkanBarangDiBeli() {
                         <span class="fadeTitle"></span>
 
                         <span class="toggleTitle">Baca selengkapnya</span>
+
+                        <h6 class="fs-6 fw-semibold mt-2">Rp${item.productPrice.toLocaleString('id-ID')}</h6>
                     </div>
                     <div class="product-price col-12 mt-auto d-flex justify-content-between py-2 g-0">
-                        <span class="fs-6 fw-semibold text-start">Rp${item.productPrice.toLocaleString('id-ID')}</span>
+                        <span class="fs-6 fw-semibold text-start">Stok (${item.productStock})</span>
                         <span class="text-end">
                             <button data-index="${index}"  class="btn-kurang p-2 border-0">-</button>
                             <span data-index="${index}" class="jumlah-pesanan p-2">${item.jumlahBarang}</span>
@@ -48,6 +60,7 @@ function tampilkanBarangDiBeli() {
         `;
 
         detailBarangDiBeli.appendChild(detailItem);   
+        console.log(detailBarangDiBeli);
         
         const titleBox = detailItem.querySelector(".title-box");
         const productTitle = titleBox.querySelector(".productTitle");
@@ -75,54 +88,141 @@ function tampilkanBarangDiBeli() {
                 fadeTitle.style.display = "block";
             }
         });    
+
     });
 
+    console.log(detailBarangDiBeli);
+    localStorage.setItem("barangDiTroli", JSON.stringify(barangDiTroli));
+};
+
+containerDetail.addEventListener("click", (e) => {
+    if (e.target.classList.contains("btn-tambah")) {
+        const index = Number(e.target.dataset.index);
+        const jumlahPesanan = document.querySelector(`.jumlah-pesanan[data-index="${index}"]`);
+        if (barangDiTroli[index].jumlahBarang < barangDiTroli[index].productStock)
+            barangDiTroli[index].jumlahBarang++;
+            jumlahPesanan.textContent = barangDiTroli[index].jumlahBarang;
+            hitungHarga();
+    }
+
+    if (e.target.classList.contains("btn-kurang")) {
+        const index = Number(e.target.dataset.index);
+            const jumlahPesanan = document.querySelector(`.jumlah-pesanan[data-index="${index}"]`);
+            if (barangDiTroli[index].jumlahBarang > 1) {
+            barangDiTroli[index].jumlahBarang--;
+            jumlahPesanan.textContent = barangDiTroli[index].jumlahBarang;
+            hitungHarga();
+            }
+    }
+    if (e.target.classList.contains("form-check-input")) {
+        hitungHarga();
+    }
+
+    if (e.target.classList.contains('jumlah-pesanan')) {
+        const index = Number(e.target.dataset.index);
+        indexJumlah = index;
+        jumlah = Number(
+            document.querySelector(`.jumlah-pesanan[data-index="${index}"]`).textContent
+        );
+        modulJumlah.value = jumlah;
+        modulInputJumlah.classList.add('active');
+        overlayModul.classList.add('active');
+    }
+
+    if (e.target.classList.contains("batalkan")) {
+        const index = Number(e.target.dataset.index);
+        barangDiTroli.splice(index, 1);
+        tampilkanBarangDiBeli();
+    }
+});
+
+btnSimpan.addEventListener('click', () => {
+    jumlah = Number(modulJumlah.value);
+    const  el = document.querySelector(`.jumlah-pesanan[data-index="${indexJumlah}"]`);
+    if (jumlah === 0) {
+        alert('Jumlah minimal 1');
+        return;
+    }
+    if (barangDiTroli[indexJumlah].productStock < jumlah) {
+        alert('Stok tidak cukup');
+        return;
+    }
+    el.textContent = jumlah;
+    barangDiTroli[indexJumlah].jumlahBarang = jumlah;
+    localStorage.setItem("barangDiTroli", JSON.stringify(barangDiTroli));
+    overlayModul.classList.remove('active');
+    modulInputJumlah.classList.remove('active');
+});
+
+tutupModulJumlah.addEventListener('click', () => {
+    overlayModul.classList.remove('active');
+    modulInputJumlah.classList.remove('active');
+});
+
+overlayModul.addEventListener("click", () => {
+    overlayModul.classList.remove('active');
+    modulInputJumlah.classList.remove('active');
+});
+
+function hitungHarga () {
+    barangDiPilih = [];
+    chekoutDiTroli = [];
+    const index = [...document.querySelectorAll('.cek-item:checked')]
+    barangDiPilih.push(
+        ...index.map(cb => ({
+            ...barangDiTroli[cb.dataset.index]
+        }))
+    );
+
+    chekoutDiTroli.push(
+        ...index.map(cb => ({
+            ...barangDiTroli[cb.dataset.index], idt : cb.dataset.index
+        }))
+    );
+
+    total_harga = barangDiPilih.reduce(
+        (sum, { productPrice, jumlahBarang = 1}) => sum + productPrice * jumlahBarang, 0
+    );
+    navbarChekout();
+    localStorage.setItem("barangDiTroli", JSON.stringify(barangDiTroli));
 };
 
 chekout.addEventListener("click", () => {
-    ambilBarangDicentang();
-    console.log(barangTerpilih);
+    console.log(total_harga);
+    if (total_harga > 1) {
+        hitungHarga();
+        console.log(chekoutDiTroli);
+        localStorage.setItem("chekoutDiTroli", JSON.stringify(chekoutDiTroli));
+        window.location = "beli-sekarang.html";
+    } else {
+        alert("pilih barang terlebih dahulu");
+    }
 });
 
-// function ambilBarangDicentang() {
-//     document.querySelectorAll('.cek-item:checked').forEach(cb => {
-//         const index = cb.dataset.index;
-//         console.log(index);
-//         barangTerpilih.push(barangDiTroli[index]);
-//         setTimeout(() => {
-//             barangDiTroli.splice(index, 1);
-//         },2000); 
-//     });
-// };
-
-function ambilBarangDicentang() {
-    const indexes = [...document.querySelectorAll('.cek-item:checked')]
-        .map(cb => Number(cb.dataset.index));
-
-    barangTerpilih.push(
-        ...indexes.map(i => barangDiTroli[i])
-    );
-
-    setTimeout(() => {
-        barangDiTroli = barangDiTroli.filter((_, i) => !indexes.includes(i));
-    }, 1000);
-
-    setTimeout(() => {
-        tampilkanBarangDiBeli();
-    }, 1010);
-    
+function navbarChekout () {
+    console.log(barangDiTroli);
+    if (barangDiTroli.length === 0) {
+        document.getElementById("chekout-container").classList.add("d-none");
+        console.log('berhasil');
+        return;
+    }
+    chekout.innerHTML = ""
+    chekout.innerHTML = `
+        <span class="fs-6 fw-semibold text-light">Chekout</span>
+        <span class="fs-6 fw-semibold text-light">Rp${total_harga.toLocaleString('id-ID')}</span>
+    `
 }
-
 
 window.onload = () => {
     const simpananbarangDiTroli = localStorage.getItem("barangDiTroli");
-    const simpananProduk = localStorage.getItem("dataproduk");
-
-    if (simpananProduk) {
-        produk = JSON.parse(simpananProduk);
-    }
+    chekoutDiTroli = [];
+    localStorage.setItem("chekoutDiTroli", JSON.stringify(chekoutDiTroli));
 
     if (simpananbarangDiTroli) {
         barangDiTroli = JSON.parse(simpananbarangDiTroli);
-        tampilkanBarangDiBeli();}
+        tampilkanBarangDiBeli();
+        navbarChekout();
+    } else {
+        navbarChekout();
+    }
 };

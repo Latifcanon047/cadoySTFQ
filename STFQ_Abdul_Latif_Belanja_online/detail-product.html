@@ -28,17 +28,17 @@
                 </a>
                 <div class="search-box">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input id="cariProduk" type="text" for class="search-input" placeholder="Cari buku, atau alat belajar...">
+                    <input id="cariProduk" type="text" for class="search-input" placeholder="Cari">
                     <span class="fa-solid fa-camera d-none"></span>
                 </div>
                 <div>
                     <button class="cari d-none">Cari</button>
                 </div>
-                <div class="shopping-cart">
-                    <div class="cart-icon">
+                <div class="ms-3 shopping-cart">
+                    <a href="troli.html" class="cart-icon" style="text-decoration: none;">
                         <i class="fas fa-shopping-cart"></i>
                         <div class="cart-count"></div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </header>
@@ -60,7 +60,7 @@
                 </div>
             </div>
             <div class="container">
-                <div class="row g-0 mt-3">
+                <div class="row g-0 my-3">
                     <div class="col-3">
                         <img id="productImg" alt="" class="img-fluid img-description pe-2">
                     </div>
@@ -70,7 +70,7 @@
                     </div>
                     <div class="price-container col-2 d-flex flex-column align-items-end text-end pe-2 ps-5">
                         <span id="productPrice" class="fs-6 fw-semibold"></span>
-                        <div class="jumlah-produk d-flex mt-auto bg-light">
+                        <div class="jumlah-produk d-flex mt-auto bg-light align-items-center justify-content-center">
                             <button id="btn-kurang" class="p-2 border-0">-</button>
                             <span id="jumlah-pesanan" class="p-2">1</span>
                             <button id="btn-tambah" class="p-2 border-0">+</button>
@@ -78,8 +78,8 @@
                     </div>
                 </div>        
             </div> 
-            <div id="tambahkanKeTroli" class="nav-troli mt-auto">
-                <div class="bg-danger w-100 m-3 d-flex align-items-center justify-content-center">
+            <div class="nav-troli mt-auto">
+                <div  id="tambahkanKeTroli" class="bg-danger w-100 m-3 d-flex align-items-center justify-content-center" style="cursor: pointer;">
                     <div class="d-flex justify-content-center fw-bold py-3">
                         <span class="text-light fw-semibold fs-5 btn-tambah-troli">Tambahkan ke troli</span>
                     </div>

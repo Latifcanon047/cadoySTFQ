@@ -1,3 +1,14 @@
+:root {
+    --primary: #4a6fa5;
+    --secondary: #166088;
+    --accent: #ff7e30;
+    --light: #f8f9fa;
+    --dark: #333;
+    --gray: #6c757d;
+    --border: #e0e0e0;
+    --danger: #ef2e2e;
+}
+
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -73,3 +84,37 @@
     font-size: 10px;
 }
 
+.nav-link {
+    position: relative; /* WAJIB */
+    text-decoration: none;
+    color: #333;
+}
+
+.total-pesanan {
+    background: var(--accent);
+    color: white;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    min-width: 18px;
+    height: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+}
+
+.total-pesanan.pesanan{
+    position: absolute;
+    top: -4px;
+    right: 0px;
+}
+
+.total-pesanan.keranjang {
+    position: absolute;
+    top: -4px;
+    right: -10px;
+}

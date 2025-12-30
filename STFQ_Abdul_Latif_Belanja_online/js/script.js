@@ -1,6 +1,10 @@
 let produk = [];
+let pesanan = [];
+let barangDiTroli = [];
 
 const productCard = document.getElementById('products-grid');
+const jumlahPesanan = document.getElementById('total-pesanan');
+const jumlahTroli = document.getElementById('total-troli');
 
 function tampilkanProduk() {
     produk.forEach((item, i) => {
@@ -28,11 +32,30 @@ function tampilkanProduk() {
     localStorage.setItem("dataproduk", JSON.stringify(produk));
 }
 
+function updateJumlahPesanan () {
+    if (pesanan.length > 0) {
+        jumlahPesanan.textContent = pesanan.length;
+        jumlahPesanan.classList.add('d-block');
+        jumlahPesanan.classList.remove('d-none');
+    }  else {
+        jumlahPesanan.classList.add('d-none');
+        jumlahPesanan.classList.remove('d-block');
+    }
+
+    if (barangDiTroli.length > 0) {
+        jumlahTroli.textContent = barangDiTroli.length;
+        jumlahTroli.classList.add('d-block');
+        jumlahTroli.classList.remove('d-none');
+    } else {
+        jumlahTroli.classList.add('d-none');
+        jumlahTroli.classList.remove('d-block');
+    }
+}
+
 async function ambildata() {
     try{
         const res = await fetch("produk.json");
         produk = await res.json();
-        console.log(produk);
         tampilkanProduk();
     } catch (err) {
         console.error("aduuuh error pulaa", err);
@@ -41,6 +64,8 @@ async function ambildata() {
 
 window.onload = () => {
     const simpanan = localStorage.getItem("dataproduk");
+    const simpananDataPesanan = localStorage.getItem("barangYangDiBeli");
+    const simpananDataTroli = localStorage.getItem("barangDiTroli");
 
     if (simpanan) {
         const data = JSON.parse(simpanan);
@@ -53,5 +78,15 @@ window.onload = () => {
     } else {
         ambildata();
     }
+
+    if (simpananDataPesanan) {
+        pesanan = JSON.parse(simpananDataPesanan);
+    }
+
+    if (simpananDataTroli) {
+        barangDiTroli = JSON.parse(simpananDataTroli)
+    }
+
+    updateJumlahPesanan();
 };
 

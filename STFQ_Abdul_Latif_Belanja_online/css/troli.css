@@ -91,3 +91,65 @@
     opacity: 1;
     pointer-events: auto;
 }
+
+.icon-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 220px;
+    height: 150px;
+}
+
+/* awan dasar */
+.cloud {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    font-size: 100px;
+    color: #dcdcdc;
+    opacity: 0.85;
+}
+
+/* awan kiri */
+.cloud.satu {
+    transform: translate(-96%, -50%);
+    z-index: 1;
+}
+
+/* awan tengah */
+.cloud.dua {
+    transform: translate(-50%, -60%);
+    font-size: 120px;
+    z-index: 0;
+}
+
+/* awan kanan */
+.cloud.tiga {
+    transform: translate(-1%, -50%);
+    z-index: 1;
+}
+
+/* troli */
+.cart {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    font-size: 50px;
+    color: black;
+    z-index: 3;
+}
+
+.text-troli {
+    font-size: medium;
+    font-weight: 740;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    z-index: 5;
+    color: black;
+    white-space: nowrap;
+    text-shadow: 2px 1px 5px white;
+}

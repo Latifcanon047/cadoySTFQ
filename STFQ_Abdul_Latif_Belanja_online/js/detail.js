@@ -14,13 +14,18 @@ let addTroli = [];
 
 
 function navbarChekout() {
-    navbar.innerHTML = `
-        <a href="beli-sekarang.html?id=${id}" class="beli-link">
-        <span>Beli Sekarang</span>
-        <span>Rp${p.productPrice.toLocaleString('id-ID')}</span>
-        </a>
-        <button id="tambah-troli" class="troli">Tambah Ke Troli</button>
-    `;
+    if (p) {
+        navbar.innerHTML = `
+            <a href="beli-sekarang.html?id=${id}" class="beli-link">
+            <span>Beli Sekarang</span>
+            <span>Rp${p.productPrice.toLocaleString('id-ID')}</span>
+            </a>
+            <button id="tambah-troli" class="troli">Tambah Ke Troli</button>
+        `;
+    } else {
+        navbar.innerHTML = "";
+        return;
+    }
 
     const btnTambahTroli = document.getElementById('tambah-troli');
     btnTambahTroli.addEventListener('click', () => {
@@ -106,20 +111,31 @@ tambahKeTroli.addEventListener("click", () => {
     const productImage = p.productImage;
     const productTitle = p.productTitle;
     const productPrice = p.productPrice;
-    const productStock = p.productStock
+    const productStock = p.productStock;
     const jumlahBarang = jumlah_pesanan;
+
+    if (productStock < 1) {
+        alert("Maaf stok habis");
+        modulTroli.classList.remove('active');
+        return;
+    }
 
     const itemAda = addTroli.find(item => item.idp === idp);
 
     if (itemAda) {
         itemAda.jumlahBarang += jumlahBarang;
-        console.log('jalan');
+        console.log(itemAda.jumlahBarang);
+        console.log(itemAda.productStock);
+        if (itemAda.jumlahBarang > itemAda.productStock){
+            itemAda.jumlahBarang = itemAda.productStock;
+        }
     } else {
         addTroli.push({idp,productImage,productTitle,productPrice,productStock,jumlahBarang});
     }
     localStorage.setItem('barangDiTroli', JSON.stringify(addTroli));
     modulTroli.classList.remove('active');
     pesanan.textContent = 1;
+    tampilkanJumlahTroli();
 });
 
 function tampilkanDetail() {
@@ -142,6 +158,27 @@ function tampilkanDetail() {
                 </div>
             </div>
         `;
+    } else {
+        detailContainer.innerHTML = `
+            <div class="gagal-memuat d-flex justify-content-center align-items-center">
+                <div class="fs-1 fw-semibold">
+                    Gagal memuat...
+                </div>
+            </div>
+        `;
+    }
+}
+
+const totalTroli = document.getElementById('total-troli');
+
+function tampilkanJumlahTroli () {
+    if (addTroli.length > 0) {
+        totalTroli.textContent = addTroli.length;
+        totalTroli.classList.add('d-block');
+        totalTroli.classList.remove('d-none');
+    } else {
+        totalTroli.classList.add('d-none');
+        totalTroli.classList.remove('d-block');
     }
 }
 
@@ -160,5 +197,6 @@ window.onload = () => {
     if (barangDiTroli) {
         addTroli = JSON.parse(barangDiTroli);
         console.log(addTroli);
+        tampilkanJumlahTroli();
     }
 };

@@ -40,7 +40,6 @@ NavBeliSekarang.addEventListener('click', () => {
             return;
     }
     if (id) {
-        console.log("aduuh");
         const namaPenerima = dataAlamat[idAlamat].namaPenerima;
         const alamatPenerima = dataAlamat[idAlamat].alamatPenerima;
         const productImage = produk[id].productImage;
@@ -48,6 +47,9 @@ NavBeliSekarang.addEventListener('click', () => {
         const productPrice = produk[id].productPrice;
         const jumlahPesanan = jumlah_pesanan;
         const totalHarga = total_harga;
+        
+        if (produk[id].productStock < 1) return; 
+
         barangYangDiBeli.push({
             id,
             namaPenerima,
@@ -84,7 +86,6 @@ NavBeliSekarang.addEventListener('click', () => {
                 totalHarga
             }); 
             indexHapus.push(idt);
-            console.log(indexHapus);
             produk[id].productStock -= item.jumlahBarang;
         })
 
@@ -101,18 +102,25 @@ NavBeliSekarang.addEventListener('click', () => {
 
 function navbarBeli() {
     if (id) {
-        NavBeliSekarang.innerHTML = `
-            <div class="m-2 bg-warning">
-                <div class="beli-sekarang">
-                    <span>Beli Sekarang</span>
-                    <span>Rp${total_harga}</span>
+        if (p.productStock === 0){
+            NavBeliSekarang.innerHTML = `
+                <div class="m-2 bg-secondary">
+                    <div class="beli-sekarang py-3">
+                        <span>Beli Sekarang</span>
+                    </div>
                 </div>
-            </div>
-        `
-        return;
-    }
-
-    if (chekoutDiTroli) {
+            `;
+        } else {
+            NavBeliSekarang.innerHTML = `
+                <div class="m-2 bg-warning">
+                    <div class="beli-sekarang">
+                        <span>Beli Sekarang</span>
+                        <span>Rp${total_harga}</span>
+                    </div>
+                </div>
+            `;
+        }
+    } else if (chekoutDiTroli) {
         NavBeliSekarang.innerHTML = `
             <div class="m-2 bg-warning">
                 <div class="beli-sekarang">
@@ -120,9 +128,9 @@ function navbarBeli() {
                     <span>Rp${totalHargaKeseluruhan}</span>
                 </div>
             </div>
-        `
+        `;
     }
-};
+}
 
 function detailBeliSekarang() {
     if (id) {
@@ -288,7 +296,6 @@ pilihAlamat.addEventListener('click', () => {
     }
 });
 
-
 // pilih alamat
 const tutupModalPilih = document.getElementById('tutup-modal-pilih');
 const tambahAlamatBaru = document.getElementById('tambah-alamat-baru');
@@ -296,12 +303,12 @@ const alamatReady = document.getElementById('alamat-ready');
 const alamatPengiriman = document.getElementById('pilih-alamat');
 
 function tampilkanAlamatKirim () {
-    if (dataAlamat.length === 0) {
+    if (dataAlamat.length === 0 || idAlamat == null) {
         alamatPengiriman.innerHTML =   `
             <div class="d-flex align-items-center justify-content-center">
                 <h3 class="text-primary py-1">+ Alamat</h3>
             </div>
-        `
+        `;
     } else {
         const alamatKirim = dataAlamat[idAlamat];
         const index = idAlamat;
@@ -368,10 +375,18 @@ alamatReady.addEventListener('click', (e) => {
         header.classList.add('sticky-top');
     }
     if (e.target.classList.contains('hapus')) {
-        const index = e.target.dataset.index;
+        const index = Number(e.target.dataset.index);
+
+        if (idAlamat == index) {
+            idAlamat = null;
+        } else if (idAlamat > index) {
+            idAlamat--;
+        }
+        
         dataAlamat.splice(index, 1);
         tampilkanAlamat();
         localStorage.setItem("dataAlamat", JSON.stringify(dataAlamat));
+        localStorage.setItem("idAlamat", idAlamat);
     }
     if (e.target.classList.contains('edit')) {
         editIndex = e.target.dataset.index;
@@ -423,6 +438,7 @@ btnSimpan.addEventListener('click', () => {
         idAlamat = dataAlamat.indexOf(alamatDipilih);
         tampilkanAlamatKirim();
         modulInputAlamat.classList.remove('active');
+        localStorage.setItem("idAlamat", JSON.stringify(idAlamat));
     } else {
         modulInputAlamat.classList.remove('active');
     }
@@ -442,7 +458,7 @@ window.onload = () => {
     }
 
     if (simpananIdAlamat) {
-        idAlamat = Number(simpananIdAlamat);
+        idAlamat = JSON.parse(simpananIdAlamat);
     }
 
     if (simpananProduk) {
@@ -461,7 +477,6 @@ window.onload = () => {
         dataAlamat = dataalamat;
         tampilkanAlamat();
         tampilkanAlamatKirim();
-        console.log(idAlamat,"berahsil broo");
     }
 
     if (simpananChekoutDiTroli) {
@@ -472,7 +487,6 @@ window.onload = () => {
 
     if (simpananBarangDiTroli){
         barangDiTroli = JSON.parse(simpananBarangDiTroli);
-        console.log(barangDiTroli);
     }
 };
 

@@ -6,7 +6,6 @@ const modulInputJumlah = document.getElementById('modul-input-jumlah');
 const modulJumlah = document.getElementById('modul-jumlah');
 const btnSimpan = document.getElementById('modul-simpan-jumlah');
 const overlayModul = document.getElementById('overlay-modul'); 
-console.log(chekout);
 let barangDiTroli = [];
 let chekoutDiTroli = [];
 let total_harga = 0;
@@ -19,79 +18,91 @@ document.getElementById('back').addEventListener('click', () => {
 });
 
 function tampilkanBarangDiBeli() {
-    detailBarangDiBeli.innerHTML = "";
-    barangDiTroli.forEach((item, index) => {
-        const detailItem = document.createElement("div");
-        detailItem.innerHTML = `
-            <div class="col-12 mt-2 py-2 row g-0">
-                <div class="col-3 pe-2">
-                    <img src="${item.productImage}" alt="eaaa" class="img-fluid img-description px-2">
-                </div>
-                <div class="title-description col-9 fs-6 pe-3 d-flex flex-column">
-                    <div class="title-box">
-                        <p class="productTitle clamped m-0">
-                            ${item.productTitle}
-                        </p>
 
-                        <span class="fadeTitle"></span>
-
-                        <span class="toggleTitle">Baca selengkapnya</span>
-
-                        <h6 class="fs-6 fw-semibold mt-2">Rp${item.productPrice.toLocaleString('id-ID')}</h6>
+    if (barangDiTroli.length > 0) {
+        detailBarangDiBeli.innerHTML = "";
+        barangDiTroli.forEach((item, index) => {
+            const detailItem = document.createElement("div");
+            detailItem.innerHTML = `
+                <div class="col-12 mt-2 py-2 row g-0">
+                    <div class="col-3 pe-2">
+                        <img src="${item.productImage}" alt="eaaa" class="img-fluid img-description px-2">
                     </div>
-                    <div class="product-price col-12 mt-auto d-flex justify-content-between py-2 g-0">
-                        <span class="fs-6 fw-semibold text-start">Stok (${item.productStock})</span>
-                        <span class="text-end">
-                            <button data-index="${index}"  class="btn-kurang p-2 border-0">-</button>
-                            <span data-index="${index}" class="jumlah-pesanan p-2">${item.jumlahBarang}</span>
-                            <button data-index="${index}"  class="btn-tambah p-2 border-0">+</button>
-                        </span>
+                    <div class="title-description col-9 fs-6 pe-3 d-flex flex-column">
+                        <div class="title-box">
+                            <p class="productTitle clamped m-0">
+                                ${item.productTitle}
+                            </p>
+
+                            <span class="fadeTitle"></span>
+
+                            <span class="toggleTitle">Baca selengkapnya</span>
+
+                            <h6 class="fs-6 fw-semibold mt-2">Rp${item.productPrice.toLocaleString('id-ID')}</h6>
+                        </div>
+                        <div class="product-price col-12 mt-auto d-flex justify-content-between py-2 g-0">
+                            <span class="fs-6 fw-semibold text-start">Stok (${item.productStock})</span>
+                            <span class="text-end">
+                                <button data-index="${index}"  class="btn-kurang p-2 border-0">-</button>
+                                <span data-index="${index}" class="jumlah-pesanan p-2">${item.jumlahBarang}</span>
+                                <button data-index="${index}"  class="btn-tambah p-2 border-0">+</button>
+                            </span>
+                        </div>
+                    </div>                   
+                </div>
+                <div class="d-flex g-0 pe-3 mb-2 garis-tebal justify-content-between align-item-center">
+                    <div class="py-2 d-flex my-auto ms-3">
+                        <input type="checkbox" data-index="${index}" class="form-check-input cek-item p-2">
                     </div>
-                </div>                   
-            </div>
-            <div class="d-flex g-0 pe-3 mb-2 garis-tebal justify-content-between align-item-center">
-                <div class="py-2 d-flex my-auto ms-3">
-                    <input type="checkbox" data-index="${index}" class="form-check-input cek-item p-2">
+                    <div class="d-flex justify-content-end my-3">
+                        <button class="bg-danger batalkan text-white" data-id="${item.id}" data-index="${index}">hapus</button>
+                    </div>
                 </div>
-                <div class="d-flex justify-content-end my-3">
-                    <button class="bg-danger batalkan text-white" data-id="${item.id}" data-index="${index}">hapus</button>
-                </div>
-            </div>
-        `;
+            `;
 
-        detailBarangDiBeli.appendChild(detailItem);   
-        console.log(detailBarangDiBeli);
-        
-        const titleBox = detailItem.querySelector(".title-box");
-        const productTitle = titleBox.querySelector(".productTitle");
-        const fadeTitle = titleBox.querySelector(".fadeTitle");
-        const toggleTitle = titleBox.querySelector(".toggleTitle");
+            detailBarangDiBeli.appendChild(detailItem);   
+            
+            const titleBox = detailItem.querySelector(".title-box");
+            const productTitle = titleBox.querySelector(".productTitle");
+            const fadeTitle = titleBox.querySelector(".fadeTitle");
+            const toggleTitle = titleBox.querySelector(".toggleTitle");
 
-        function isOverflow(element, threshold = 100) {
-            if (!element) return false;
-            return element.scrollHeight > element.clientHeight + threshold;
-        }
-
-        if (!isOverflow(productTitle, 5)) {
-            toggleTitle.style.display = "none";
-            fadeTitle.style.display = "none";
-        }
-
-        toggleTitle.addEventListener("click", () => {
-            productTitle.classList.toggle("expanded");
-
-            if (productTitle.classList.contains("expanded")) {
-                toggleTitle.textContent = "sembunyikan";
-                fadeTitle.style.display = "none";
-            } else {
-                toggleTitle.textContent = "Baca selengkapnya";
-                fadeTitle.style.display = "block";
+            function isOverflow(element, threshold = 100) {
+                if (!element) return false;
+                return element.scrollHeight > element.clientHeight + threshold;
             }
-        });    
 
-    });
+            if (!isOverflow(productTitle, 5)) {
+                toggleTitle.style.display = "none";
+                fadeTitle.style.display = "none";
+            }
 
-    console.log(detailBarangDiBeli);
+            toggleTitle.addEventListener("click", () => {
+                productTitle.classList.toggle("expanded");
+
+                if (productTitle.classList.contains("expanded")) {
+                    toggleTitle.textContent = "sembunyikan";
+                    fadeTitle.style.display = "none";
+                } else {
+                    toggleTitle.textContent = "Baca selengkapnya";
+                    fadeTitle.style.display = "block";
+                }
+            });    
+
+        });
+
+    } else {
+        detailBarangDiBeli.innerHTML = ` 
+        <div class="icon-wrapper">
+            <i class="fa-solid fa-cloud cloud satu"></i>
+            <i class="fa-solid fa-cloud cloud dua"></i>
+            <i class="fa-solid fa-cloud cloud tiga"></i>
+            <i class="fa-solid fa-cart-shopping cart"></i>
+            <span class="text-troli">Troli masih kosong..</span>
+        </div>
+        `
+    }
+
     localStorage.setItem("barangDiTroli", JSON.stringify(barangDiTroli));
 };
 
@@ -133,6 +144,7 @@ containerDetail.addEventListener("click", (e) => {
         const index = Number(e.target.dataset.index);
         barangDiTroli.splice(index, 1);
         tampilkanBarangDiBeli();
+        navbarChekout();
     }
 });
 
@@ -188,10 +200,8 @@ function hitungHarga () {
 };
 
 chekout.addEventListener("click", () => {
-    console.log(total_harga);
     if (total_harga > 1) {
         hitungHarga();
-        console.log(chekoutDiTroli);
         localStorage.setItem("chekoutDiTroli", JSON.stringify(chekoutDiTroli));
         window.location = "beli-sekarang.html";
     } else {
@@ -200,17 +210,16 @@ chekout.addEventListener("click", () => {
 });
 
 function navbarChekout () {
-    console.log(barangDiTroli);
     if (barangDiTroli.length === 0) {
         document.getElementById("chekout-container").classList.add("d-none");
         console.log('berhasil');
         return;
     }
-    chekout.innerHTML = ""
+    chekout.innerHTML = "";
     chekout.innerHTML = `
         <span class="fs-6 fw-semibold text-light">Chekout</span>
         <span class="fs-6 fw-semibold text-light">Rp${total_harga.toLocaleString('id-ID')}</span>
-    `
+    `;
 }
 
 window.onload = () => {
@@ -220,9 +229,10 @@ window.onload = () => {
 
     if (simpananbarangDiTroli) {
         barangDiTroli = JSON.parse(simpananbarangDiTroli);
-        tampilkanBarangDiBeli();
         navbarChekout();
     } else {
         navbarChekout();
     }
+    
+    tampilkanBarangDiBeli();
 };
